@@ -8,7 +8,10 @@ export const authConfig = {
         authorized({ auth, request: { nextUrl } }) {
             const isLoggedIn = !!auth?.user
             const isOnDashboard = nextUrl.pathname.startsWith("/dashboard")
-            if (isOnDashboard) {
+            const isOnNequiSimulation = nextUrl.pathname.startsWith("/simulations/nequi")
+            const isOnNequiSend = nextUrl.pathname.startsWith("/simulations/nequi/send")
+
+            if (isOnDashboard || isOnNequiSimulation || isOnNequiSend) {
                 if (isLoggedIn) return true
                 return false // Redirect unauthenticated users to login page
             } else if (isLoggedIn) {
@@ -22,12 +25,20 @@ export const authConfig = {
         async session({ session, token }) {
             if (token.sub && session.user) {
                 session.user.id = token.sub;
+                session.user.accessToken = token.accessToken;
+                session.user.refreshToken = token.refreshToken;
+                session.user.role = token.role;
+                session.user.adultMode = token.adultMode;
             }
             return session;
         },
         async jwt({ token, user }) {
             if (user) {
                 token.sub = user.id;
+                token.accessToken = user.accessToken;
+                token.refreshToken = user.refreshToken;
+                token.role = user.role;
+                token.adultMode = user.adultMode;
             }
             return token;
         }

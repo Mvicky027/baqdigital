@@ -11,18 +11,25 @@ export const metadata: Metadata = {
   title: "BAQ+DIGITAL - Alfabetización Digital para Barranquilla",
   description: "Plataforma de simulación para aprender a usar servicios digitales de forma segura",
   generator: "v0.app",
-  
+
 }
 
-export default function RootLayout({
+import { Providers } from "@/components/providers"
+import { auth } from "@/auth"
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const session = await auth()
+
   return (
     <html lang="es">
       <body className={`font-sans antialiased`}>
-        {children}
+        <Providers session={session}>
+          {children}
+        </Providers>
         <Analytics />
       </body>
     </html>
