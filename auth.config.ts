@@ -10,8 +10,9 @@ export const authConfig = {
             const isOnDashboard = nextUrl.pathname.startsWith("/dashboard")
             const isOnNequiSimulation = nextUrl.pathname.startsWith("/simulations/nequi")
             const isOnNequiSend = nextUrl.pathname.startsWith("/simulations/nequi/send")
+            const isOnSuraSimulation = nextUrl.pathname.startsWith("/simulations/sura")
 
-            if (isOnDashboard || isOnNequiSimulation || isOnNequiSend) {
+            if (isOnDashboard || isOnNequiSimulation || isOnNequiSend || isOnSuraSimulation) {
                 if (isLoggedIn) return true
                 return false // Redirect unauthenticated users to login page
             } else if (isLoggedIn) {

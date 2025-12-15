@@ -20,7 +20,7 @@ export function IDValidationStep({ onNext, onBack }: IDValidationStepProps) {
 
             <div className="bg-gray-200 rounded-lg h-48 mb-6 flex items-center justify-center relative overflow-hidden">
                 {/* Placeholder for ID image */}
-                <div className="absolute inset-0 bg-gradient-to-br from-yellow-100 to-yellow-200 opacity-50"></div>
+                <div className="absolute inset-0 bg-linear-to-br from-yellow-100 to-yellow-200 opacity-50"></div>
                 <div className="relative z-10 text-center">
                     <div className="w-24 h-24 bg-gray-300 rounded-full mx-auto mb-2 flex items-center justify-center">
                         <User className="w-12 h-12 text-gray-500" />
