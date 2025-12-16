@@ -87,21 +87,20 @@ export function AuthLayout({
     const FormSection = (
         <div className="flex-1 flex flex-col justify-center px-8 lg:px-16 xl:px-24 bg-white">
             <div className="w-full max-w-md mx-auto">
-                {/* Logo */}
-                <Link href="/" className="flex items-center mb-10">
-                    <span className="text-[24px] font-bold tracking-tight">
-                        <span className="text-[#0a2540]">BAQ</span>
-                        <span className="text-[#00b8c4]">+</span>
-                        <span className="text-[#0a2540]">DIGITAL</span>
-                    </span>
-                    <svg className="w-7 h-7 ml-1" viewBox="0 0 28 28" fill="none">
-                        <circle cx="14" cy="14" r="11" stroke="#00b8c4" strokeWidth="2.5" />
-                        <circle cx="14" cy="14" r="4" fill="#00b8c4" />
-                        <line x1="14" y1="3" x2="14" y2="8" stroke="#00b8c4" strokeWidth="2.5" strokeLinecap="round" />
-                        <line x1="14" y1="20" x2="14" y2="25" stroke="#00b8c4" strokeWidth="2.5" strokeLinecap="round" />
-                        <line x1="3" y1="14" x2="8" y2="14" stroke="#00b8c4" strokeWidth="2.5" strokeLinecap="round" />
-                        <line x1="20" y1="14" x2="25" y2="14" stroke="#00b8c4" strokeWidth="2.5" strokeLinecap="round" />
+                {/* Back Button */}
+                <Link
+                    href="/"
+                    className="inline-flex items-center text-sm text-gray-500 hover:text-[#0a2540] transition-colors mb-8 group"
+                >
+                    <svg
+                        className="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                     </svg>
+                    Volver al inicio
                 </Link>
 
                 {/* Welcome Text */}
