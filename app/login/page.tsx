@@ -40,23 +40,33 @@ export default function LoginPage() {
     }, 3000)
 
     try {
-      const result = await loginAction(data)
+      // Race between server action and a 25s client-side timeout
+      const timeoutPromise = new Promise<{ error: string }>((_, reject) => {
+        setTimeout(() => reject(new Error("REQUEST_TIMEOUT")), 25000)
+      })
+
+      const result = await Promise.race([
+        loginAction(data),
+        timeoutPromise
+      ]) as Awaited<ReturnType<typeof loginAction>>
+
       clearTimeout(slowTimer)
+
       if (result?.error) {
         setError(result.error)
         setIsLoading(false)
       } else {
-        // Redirect handled by server action or middleware, but we can push here too if needed
-        // router.push("/dashboard") 
-        // Actually, server action redirect: false means we need to handle it or reload
-        // But auth-action uses redirect: false. Let's check auth-action again.
-        // Wait, auth-action uses redirect: false. So we need to redirect manually.
         router.push("/dashboard")
       }
-    } catch (err) {
+    } catch (err: any) {
       clearTimeout(slowTimer)
-      setError("Ocurrió un error inesperado")
       setIsLoading(false)
+
+      if (err.message === "REQUEST_TIMEOUT") {
+        setError("El servidor está tardando demasiado en responder. Posiblemente se está reiniciando. Por favor intenta de nuevo en 30 segundos.")
+      } else {
+        setError("Ocurrió un error inesperado al intentar conectar.")
+      }
     }
   }
 
