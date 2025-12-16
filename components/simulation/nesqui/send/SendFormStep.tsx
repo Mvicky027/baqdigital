@@ -21,7 +21,7 @@ export function SendFormStep({ recipient, setRecipient, amount, setAmount, onNex
 
             <div className="space-y-6">
                 <div className="bg-emerald-50/50 p-4 rounded-xl relative">
-                    <label className="text-xs text-[#da0081] font-medium block mb-1">Escribe la llave para enviar</label>
+                    <label className="text-xs text-[#059669] font-medium block mb-1">Escribe la llave para enviar</label>
                     <input
                         type="tel"
                         value={recipient}
@@ -37,7 +37,7 @@ export function SendFormStep({ recipient, setRecipient, amount, setAmount, onNex
                 </p>
 
                 <div className="bg-emerald-50/50 p-4 rounded-xl relative">
-                    <label className="text-xs text-[#da0081] font-medium block mb-1">¿Cuánto?</label>
+                    <label className="text-xs text-[#059669] font-medium block mb-1">¿Cuánto?</label>
                     <div className="flex items-center">
                         <span className="text-[#130016] font-medium text-lg mr-1">$</span>
                         <input
@@ -48,13 +48,13 @@ export function SendFormStep({ recipient, setRecipient, amount, setAmount, onNex
                             placeholder="0"
                         />
                     </div>
-                    <div className="absolute right-4 top-1/2 transform -translate-y-1/2 border-2 border-[#da0081] rounded p-1">
-                        <Pencil className="text-[#da0081] w-4 h-4" />
+                    <div className="absolute right-4 top-1/2 transform -translate-y-1/2 border-2 border-[#059669] rounded p-1">
+                        <Pencil className="text-[#059669] w-4 h-4" />
                     </div>
                 </div>
 
                 <div className="bg-emerald-50/50 p-4 rounded-xl">
-                    <label className="text-xs text-[#da0081] font-medium block mb-1">Mensaje</label>
+                    <label className="text-xs text-[#059669] font-medium block mb-1">Mensaje</label>
                     <input
                         type="text"
                         className="w-full bg-transparent border-none outline-none text-[#130016]"

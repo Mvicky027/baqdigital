@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
+import { signOut } from "next-auth/react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import {
@@ -21,7 +22,7 @@ const courses = [
     description: "Aprende a enviar plata, pedir plata y pagar servicios",
     icon: CreditCard,
     color: "bg-emerald-600",
-    simulationUrl: "/simulations/nequi",
+    simulationUrl: "/simulations/nesqui",
   },
   {
     id: "sura",
@@ -29,7 +30,7 @@ const courses = [
     description: "Gestiona tus citas médicas, resultados y seguros",
     icon: Shield,
     color: "bg-violet-600",
-    simulationUrl: "/simulations/sura",
+    simulationUrl: "/simulations/tura",
   },
 ]
 
@@ -94,16 +95,19 @@ export default function DashboardPage() {
         setDebugStatus(session?.user ? "Sesión encontrada" : "Sesión vacía")
 
         if (!session || !session.user) {
-          setDebugStatus("Redirigiendo a login (sin usuario)...")
-          setTimeout(() => router.push("/login"), 2000) // Delay to see debug
+          setDebugStatus("ERROR: No usuario en sesión. Verifica Cookies/AUTH_SECRET.")
+          // STOP REDIRECT for debugging
+          // setTimeout(() => router.push("/login"), 2000) 
+          setLoading(false) // Stop loading spinner so we can see the error
           return
         }
 
         setUser(session.user)
       } catch (error: any) {
         console.error("Error loading user data:", error)
-        setDebugStatus(`Error cargando sesión: ${error.message}`)
-        setTimeout(() => router.push("/login"), 3000)
+        setDebugStatus(`Error fatal: ${error.message}`)
+        setLoading(false)
+        // setTimeout(() => router.push("/login"), 3000)
       } finally {
         setLoading(false)
       }
@@ -128,8 +132,7 @@ export default function DashboardPage() {
   }
 
   const confirmLogout = async () => {
-    await fetch("/api/auth/signout", { method: "POST" })
-    window.location.href = "/" // Hard redirect
+    await signOut({ callbackUrl: "/login" })
   }
 
   if (loading) {
@@ -141,6 +144,23 @@ export default function DashboardPage() {
           <div className="mt-4 p-2 bg-white/50 rounded text-xs font-mono text-blue-800">
             Debug: {debugStatus}
           </div>
+        </div>
+      </div>
+    )
+  }
+
+  if (!user) {
+    return (
+      <div className="min-h-screen bg-red-50 flex flex-col items-center justify-center p-4">
+        <div className="text-center max-w-md">
+          <h1 className="text-2xl font-bold text-red-600 mb-4">Error de Sesión</h1>
+          <p className="text-gray-700 mb-4">No se pudo recuperar la sesión del usuario.</p>
+          <div className="bg-white p-4 rounded border border-red-200 text-left font-mono text-xs overflow-auto">
+            <strong>Debug Info:</strong>
+            <br />
+            {debugStatus}
+          </div>
+          <Button className="mt-6" onClick={() => router.push('/login')}>Volver a Login</Button>
         </div>
       </div>
     )
@@ -251,28 +271,28 @@ export default function DashboardPage() {
               cometer errores sin consecuencias reales.
             </p>
           </div>
-          <DialogFooter className="flex gap-2 sm:gap-0 flex-wrap">
+          <DialogFooter className="flex gap-4 items-center justify-end flex-wrap">
             <Button variant="outline" onClick={() => setShowDialog(false)} className="w-full sm:w-auto">
               Cancelar
             </Button>
 
             {selectedCourse?.id === 'nequi' ? (
-              <div className="flex gap-2 w-full sm:w-auto mt-2 sm:mt-0">
+              <div className="flex gap-4 w-full sm:w-auto mt-2 sm:mt-0">
                 <Button
                   className="bg-emerald-600 hover:bg-emerald-700 text-white flex-1"
-                  onClick={() => router.push('/simulations/nequi')}
+                  onClick={() => router.push('/simulations/nesqui')}
                 >
                   Registrarse
                 </Button>
                 <Button
                   className="bg-emerald-600 hover:bg-emerald-700 text-white flex-1"
-                  onClick={() => router.push('/simulations/nequi/send')}
+                  onClick={() => router.push('/simulations/nesqui/send')}
                 >
                   Enviar Plata
                 </Button>
               </div>
             ) : (
-              <Button className="bg-blue-900 hover:bg-blue-800 w-full sm:w-auto mt-2 sm:mt-0" onClick={handleStartSimulation}>
+              <Button className="bg-violet-600 hover:bg-violet-700 w-full sm:w-auto mt-2 sm:mt-0" onClick={handleStartSimulation}>
                 Iniciar simulación
               </Button>
             )}
@@ -289,11 +309,11 @@ export default function DashboardPage() {
               ¿Estás seguro que deseas salir de BAQ+DIGITAL? Tendrás que ingresar tus datos nuevamente para entrar.
             </DialogDescription>
           </DialogHeader>
-          <DialogFooter className="flex gap-2 sm:gap-0">
-            <Button variant="outline" onClick={() => setShowLogoutDialog(false)}>
+          <DialogFooter className="flex sm:justify-end gap-4">
+            <Button className="bg-gray-100 text-gray-700 hover:bg-gray-200" onClick={() => setShowLogoutDialog(false)}>
               Cancelar
             </Button>
-            <Button variant="destructive" onClick={confirmLogout}>
+            <Button className="bg-[#0a2540] text-white hover:bg-blue-900" onClick={confirmLogout}>
               Sí, cerrar sesión
             </Button>
           </DialogFooter>

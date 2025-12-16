@@ -10,7 +10,7 @@ export function TuraMessageModal({ onClose }: TuraMessageModalProps) {
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
             <div className="bg-white rounded shadow-lg w-full max-w-lg overflow-hidden">
                 {/* Header */}
-                <div className="bg-[#0033a0] text-white p-3 font-bold text-sm uppercase flex justify-between items-center">
+                <div className="bg-[#5b21b6] text-white p-3 font-bold text-sm uppercase flex justify-between items-center">
                     <span>MENSAJE DE USUARIO</span>
                     <X className="w-4 h-4 cursor-pointer" onClick={onClose} />
                 </div>

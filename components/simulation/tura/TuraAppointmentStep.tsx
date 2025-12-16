@@ -32,10 +32,16 @@ export function TuraAppointmentStep({ onAssignAppointment, onTabChange }: TuraAp
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('/api/simulations/sura/user')
+                const response = await fetch('/api/simulations/tura/user')
                 if (response.ok) {
                     const data = await response.json()
                     setApiData(data)
+                    // Pre-populate editable fields so they are not empty
+                    setIdInfo(data.idInfo || "")
+                    setName(data.name || "")
+                    setIps(data.ips || "")
+                    setCellphone(data.cellphone || "")
+                    setEmail(data.email || "")
                 }
             } catch (error) {
                 console.error("Failed to fetch user data", error)
@@ -47,6 +53,17 @@ export function TuraAppointmentStep({ onAssignAppointment, onTabChange }: TuraAp
     return (
         <div className="min-h-screen bg-white font-sans">
             <div className="container mx-auto px-4 py-8 max-w-5xl">
+                {/* Back Button */}
+                <div className="mb-6">
+                    <button
+                        onClick={() => window.location.href = '/dashboard'}
+                        className="flex items-center gap-2 text-gray-500 hover:text-violet-800 transition-colors font-medium text-sm"
+                    >
+                        <ChevronLeft className="w-4 h-4" />
+                        Volver al Dashboard
+                    </button>
+                </div>
+
                 {/* Tabs */}
                 <div className="flex gap-4 mb-8">
                     <button
@@ -69,8 +86,11 @@ export function TuraAppointmentStep({ onAssignAppointment, onTabChange }: TuraAp
                 <div className="border border-gray-200 rounded-lg shadow-sm bg-white">
                     {/* Card Header */}
                     <div className="flex justify-between items-center p-4 border-b border-gray-200">
-                        <h2 className="text-[#0033a0] font-bold text-sm uppercase">Asignación de citas</h2>
-                        <button className="bg-[#dc3545] text-white px-3 py-1 rounded text-xs font-medium">
+                        <h2 className="text-[#5b21b6] font-bold text-sm uppercase">Asignación de citas</h2>
+                        <button
+                            onClick={() => window.location.href = '/dashboard'}
+                            className="bg-[#dc3545] text-white px-3 py-1 rounded text-xs font-medium hover:bg-red-700 transition-colors"
+                        >
                             Cerrar sesión
                         </button>
                     </div>
@@ -89,7 +109,7 @@ export function TuraAppointmentStep({ onAssignAppointment, onTabChange }: TuraAp
                                         value={idInfo}
                                         onChange={(e) => setIdInfo(e.target.value)}
                                         placeholder={apiData.idInfo}
-                                        className="w-full border border-gray-300 rounded p-2 text-sm text-gray-700 focus:outline-none focus:border-[#007bff] bg-white placeholder:text-gray-400"
+                                        className="w-full border border-gray-300 rounded p-2 text-sm text-gray-700 focus:outline-none focus:border-[#5b21b6] bg-white placeholder:text-gray-400"
                                     />
                                 </div>
                                 <div>
@@ -99,7 +119,7 @@ export function TuraAppointmentStep({ onAssignAppointment, onTabChange }: TuraAp
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
                                         placeholder={apiData.name}
-                                        className="w-full border border-gray-300 rounded p-2 text-sm text-gray-700 focus:outline-none focus:border-[#007bff] bg-white placeholder:text-gray-400"
+                                        className="w-full border border-gray-300 rounded p-2 text-sm text-gray-700 focus:outline-none focus:border-[#5b21b6] bg-white placeholder:text-gray-400"
                                     />
                                 </div>
                                 <div>
@@ -109,7 +129,7 @@ export function TuraAppointmentStep({ onAssignAppointment, onTabChange }: TuraAp
                                         value={ips}
                                         onChange={(e) => setIps(e.target.value)}
                                         placeholder={apiData.ips}
-                                        className="w-full border border-gray-300 rounded p-2 text-sm text-gray-700 focus:outline-none focus:border-[#007bff] bg-white placeholder:text-gray-400"
+                                        className="w-full border border-gray-300 rounded p-2 text-sm text-gray-700 focus:outline-none focus:border-[#5b21b6] bg-white placeholder:text-gray-400"
                                     />
                                 </div>
                             </div>
@@ -127,7 +147,7 @@ export function TuraAppointmentStep({ onAssignAppointment, onTabChange }: TuraAp
                                         type="text"
                                         value={phone}
                                         onChange={(e) => setPhone(e.target.value)}
-                                        className="w-full border border-gray-300 rounded p-2 text-sm text-gray-700 focus:outline-none focus:border-[#007bff] bg-white h-[38px]"
+                                        className="w-full border border-gray-300 rounded p-2 text-sm text-gray-700 focus:outline-none focus:border-[#5b21b6] bg-white h-[38px]"
                                     />
                                 </div>
                                 <div>
@@ -137,7 +157,7 @@ export function TuraAppointmentStep({ onAssignAppointment, onTabChange }: TuraAp
                                         value={cellphone}
                                         onChange={(e) => setCellphone(e.target.value)}
                                         placeholder={apiData.cellphone}
-                                        className="w-full border border-gray-300 rounded p-2 text-sm text-gray-700 focus:outline-none focus:border-[#007bff] bg-white placeholder:text-gray-400"
+                                        className="w-full border border-gray-300 rounded p-2 text-sm text-gray-700 focus:outline-none focus:border-[#5b21b6] bg-white placeholder:text-gray-400"
                                     />
                                 </div>
                                 <div>
@@ -147,7 +167,7 @@ export function TuraAppointmentStep({ onAssignAppointment, onTabChange }: TuraAp
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         placeholder={apiData.email}
-                                        className="w-full border border-gray-300 rounded p-2 text-sm text-gray-700 focus:outline-none focus:border-[#007bff] bg-white placeholder:text-gray-400"
+                                        className="w-full border border-gray-300 rounded p-2 text-sm text-gray-700 focus:outline-none focus:border-[#5b21b6] bg-white placeholder:text-gray-400"
                                     />
                                 </div>
                             </div>
@@ -168,7 +188,7 @@ export function TuraAppointmentStep({ onAssignAppointment, onTabChange }: TuraAp
                                         <label className="block text-gray-500 text-xs mb-1">Profesional</label>
                                         <div className="relative w-full">
                                             <select
-                                                className="w-full border border-gray-300 rounded p-2 text-sm text-gray-700 appearance-none bg-[#dbeafe] focus:outline-none focus:border-[#007bff] pr-8 truncate"
+                                                className="w-full border border-gray-300 rounded p-2 text-sm text-gray-700 appearance-none bg-[#dbeafe] focus:outline-none focus:border-[#5b21b6] pr-8 truncate"
                                             >
                                                 <option>MOZO MUÑOZ SERGIO ENRIQUE (MEDICO GENERAL) - 2025/12/15</option>
                                             </select>
@@ -179,7 +199,7 @@ export function TuraAppointmentStep({ onAssignAppointment, onTabChange }: TuraAp
                                     <div className="flex flex-col md:flex-row gap-4">
                                         {/* Calendar */}
                                         <div className="w-full md:w-64 border border-gray-200 rounded p-2">
-                                            <div className="flex justify-between items-center mb-2 bg-[#00aec7] text-white p-1 rounded">
+                                            <div className="flex justify-between items-center mb-2 bg-[#7c3aed] text-white p-1 rounded">
                                                 <button><ChevronLeft className="w-4 h-4" /></button>
                                                 <span className="text-xs font-bold">Diciembre 2025</span>
                                                 <button><ChevronRight className="w-4 h-4" /></button>
@@ -191,19 +211,19 @@ export function TuraAppointmentStep({ onAssignAppointment, onTabChange }: TuraAp
                                                 <span className="text-gray-300">1</span><span className="text-gray-300">2</span><span className="text-gray-300">3</span><span className="text-gray-300">4</span><span className="text-gray-300">5</span><span className="text-gray-300">6</span><span className="text-gray-300">7</span>
                                                 <span className="text-gray-300">8</span><span className="text-gray-300">9</span><span className="text-gray-300">10</span><span className="text-gray-300">11</span><span className="text-gray-300">12</span><span className="text-gray-300">13</span><span className="text-gray-300">14</span>
                                                 <span className="bg-[#5c6bc0] text-white rounded">15</span><span className="text-gray-300">16</span><span className="text-gray-300">17</span><span className="text-gray-300">18</span><span className="text-gray-300">19</span><span className="text-gray-300">20</span><span className="text-gray-300">21</span>
-                                                <span className="text-gray-300">22</span><span className="text-gray-300">23</span><span className="bg-[#00aec7] text-white rounded">24</span><span className="text-gray-300">25</span><span className="bg-[#00aec7] text-white rounded">26</span><span className="bg-[#00aec7] text-white rounded">27</span><span className="text-gray-300">28</span>
-                                                <span className="bg-[#00aec7] text-white rounded">29</span><span className="bg-[#00aec7] text-white rounded">30</span><span className="text-gray-300">31</span>
+                                                <span className="text-gray-300">22</span><span className="text-gray-300">23</span><span className="bg-[#7c3aed] text-white rounded">24</span><span className="text-gray-300">25</span><span className="bg-[#7c3aed] text-white rounded">26</span><span className="bg-[#7c3aed] text-white rounded">27</span><span className="text-gray-300">28</span>
+                                                <span className="bg-[#7c3aed] text-white rounded">29</span><span className="bg-[#7c3aed] text-white rounded">30</span><span className="text-gray-300">31</span>
                                             </div>
                                             <div className="flex gap-2 mt-4 text-[10px] justify-center">
                                                 <div className="flex items-center gap-1"><div className="w-2 h-2 bg-[#5c6bc0]"></div> Hoy</div>
-                                                <div className="flex items-center gap-1"><div className="w-2 h-2 bg-[#00aec7]"></div> Disponible</div>
+                                                <div className="flex items-center gap-1"><div className="w-2 h-2 bg-[#7c3aed]"></div> Disponible</div>
                                                 <div className="flex items-center gap-1"><div className="w-2 h-2 bg-gray-300"></div> No disponible</div>
                                             </div>
                                         </div>
 
                                         {/* Slots Table */}
                                         <div className="flex-1 border border-gray-200 rounded overflow-hidden">
-                                            <div className="bg-[#0033a0] text-white text-xs font-bold flex p-2">
+                                            <div className="bg-[#5b21b6] text-white text-xs font-bold flex p-2">
                                                 <div className="w-1/3 text-center">HORAS (FORMATO 24 HORAS)</div>
                                                 <div className="w-1/3 text-center">LUGAR DE ATENCIÓN</div>
                                                 <div className="w-1/3 text-center">LUNES 2025/12/15</div>
@@ -245,7 +265,7 @@ export function TuraAppointmentStep({ onAssignAppointment, onTabChange }: TuraAp
                                             <select
                                                 value={service}
                                                 onChange={(e) => setService(e.target.value)}
-                                                className="w-full border border-gray-300 rounded p-2 text-sm text-gray-700 appearance-none bg-[#e9ecef] focus:outline-none focus:border-[#007bff] pr-8 truncate"
+                                                className="w-full border border-gray-300 rounded p-2 text-sm text-gray-700 appearance-none bg-[#e9ecef] focus:outline-none focus:border-[#5b21b6] pr-8 truncate"
                                             >
                                                 <option>CONSULTA MEDICINA GENERAL SALUD CITA PRESI</option>
                                             </select>

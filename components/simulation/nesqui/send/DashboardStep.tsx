@@ -15,6 +15,9 @@ export function DashboardStep({ onSend }: DashboardStepProps) {
             <div className="bg-[#130016] p-6 pb-12 rounded-b-[3rem] relative z-10">
                 <div className="flex justify-between items-start mb-6">
                     <div className="flex items-center gap-3">
+                        <button onClick={() => window.location.href = '/dashboard'} className="text-white hover:text-gray-300">
+                            <ArrowLeft className="w-6 h-6" />
+                        </button>
                         <div className="w-10 h-10 bg-gray-700 rounded-lg flex items-center justify-center">
                             <User className="text-white w-6 h-6" />
                         </div>
@@ -52,13 +55,13 @@ export function DashboardStep({ onSend }: DashboardStepProps) {
             <div className="p-6 pt-8">
                 <div className="flex justify-between items-center mb-4">
                     <h3 className="font-medium text-gray-700">Tus favoritos</h3>
-                    <span className="text-[#da0081]">✎</span>
+                    <span className="text-[#059669]">✎</span>
                 </div>
 
                 <div className="grid grid-cols-4 gap-4 mb-8">
                     <div className="flex flex-col items-center gap-2">
                         <div className="w-14 h-14 bg-white border border-gray-200 rounded-xl flex items-center justify-center shadow-sm">
-                            <Smartphone className="text-[#da0081]" />
+                            <Smartphone className="text-[#059669]" />
                         </div>
                         <span className="text-xs text-center text-gray-600">Tarjeta Nesqui</span>
                     </div>
@@ -75,13 +78,13 @@ export function DashboardStep({ onSend }: DashboardStepProps) {
                     </div>
                     <div className="flex flex-col items-center gap-2">
                         <div className="w-14 h-14 bg-white border border-gray-200 rounded-xl flex items-center justify-center shadow-sm">
-                            <div className="w-6 h-6 border-2 border-[#da0081] rounded-t-lg border-b-0"></div>
+                            <div className="w-6 h-6 border-2 border-[#059669] rounded-t-lg border-b-0"></div>
                         </div>
                         <span className="text-xs text-center text-gray-600">Bolsillos</span>
                     </div>
                     <div className="flex flex-col items-center gap-2">
                         <div className="w-14 h-14 bg-white border border-gray-200 rounded-xl flex items-center justify-center shadow-sm">
-                            <div className="w-6 h-6 rounded-full border-2 border-[#da0081]"></div>
+                            <div className="w-6 h-6 rounded-full border-2 border-[#059669]"></div>
                         </div>
                         <span className="text-xs text-center text-gray-600">Metas</span>
                     </div>
@@ -122,7 +125,7 @@ export function DashboardStep({ onSend }: DashboardStepProps) {
                             </div>
 
                             <div className="flex items-center gap-4 animate-in slide-in-from-bottom-5 fade-in duration-200">
-                                <div className="bg-white border border-[#da0081] text-[#da0081] px-6 py-2 rounded-lg shadow-sm font-medium">
+                                <div className="bg-white border border-[#059669] text-[#059669] px-6 py-2 rounded-lg shadow-sm font-medium">
                                     Envía
                                 </div>
                                 <button

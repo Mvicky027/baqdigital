@@ -31,15 +31,15 @@ export function ConfirmStep({ recipient, amount, onConfirm, onBack }: ConfirmSte
 
                 <div className="space-y-4 mb-8">
                     <div>
-                        <p className="text-[#da0081] text-xs font-medium">Vas a enviar a:</p>
+                        <p className="text-[#059669] text-xs font-medium">Vas a enviar a:</p>
                         <p className="text-[#130016] font-medium">Usuario Desconocido</p>
                     </div>
                     <div>
-                        <p className="text-[#da0081] text-xs font-medium">A la llave</p>
+                        <p className="text-[#059669] text-xs font-medium">A la llave</p>
                         <p className="text-[#130016] font-medium">{recipient}</p>
                     </div>
                     <div>
-                        <p className="text-[#da0081] text-xs font-medium">¿Cuánto?</p>
+                        <p className="text-[#059669] text-xs font-medium">¿Cuánto?</p>
                         <p className="text-[#130016] font-medium text-xl">$ {formattedAmount},00</p>
                     </div>
 

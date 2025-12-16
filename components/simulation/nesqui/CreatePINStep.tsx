@@ -39,7 +39,7 @@ export function CreatePINStep({ onNext }: CreatePINStepProps) {
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
                     <div
                         key={num}
-                        className="cursor-pointer active:text-[#da0081]"
+                        className="cursor-pointer active:text-[#059669]"
                         onClick={() => {
                             const index = pin.findIndex(d => d === "")
                             if (index !== -1) {

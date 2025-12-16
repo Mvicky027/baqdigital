@@ -11,7 +11,13 @@ interface LoginStepProps {
 export function LoginStep({ phoneNumber, setPhoneNumber, onNext, onBack }: LoginStepProps) {
     return (
         <div className="flex flex-col h-full bg-[#130016] p-6 relative">
-            <div className="flex justify-end mb-4">
+            <div className="flex justify-between mb-4">
+                <button
+                    onClick={() => window.location.href = '/dashboard'}
+                    className="text-white/70 hover:text-white flex items-center gap-1 text-xs"
+                >
+                    <ArrowLeft className="w-4 h-4" /> Volver
+                </button>
                 <div className="border border-white/30 rounded-lg px-3 py-1 flex items-center gap-2 text-white text-xs">
                     <span>?</span> Ayuda
                 </div>

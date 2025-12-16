@@ -26,7 +26,7 @@ export function SendSuccessStep({ recipient, amount, onFinish }: SendSuccessStep
             <div className="flex justify-between items-center p-4 bg-[#f2f4f8] z-10">
                 <ArrowLeft className="w-6 h-6 text-[#130016] cursor-pointer" onClick={onFinish} />
                 <h1 className="text-lg font-bold text-[#130016]">Detalle del movimiento</h1>
-                <Share2 className="w-6 h-6 text-[#da0081] cursor-pointer" />
+                <Share2 className="w-6 h-6 text-[#059669] cursor-pointer" />
             </div>
 
             {/* Receipt Content */}

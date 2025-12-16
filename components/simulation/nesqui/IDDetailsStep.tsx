@@ -26,7 +26,7 @@ export function IDDetailsStep({ idNumber, setIdNumber, birthDate, setBirthDate, 
 
             <div className="space-y-4 mb-8">
                 <div className="bg-emerald-50 p-4 rounded-lg">
-                    <label className="block text-xs text-[#da0081] mb-1">Número de identificación *</label>
+                    <label className="block text-xs text-[#059669] mb-1">Número de identificación *</label>
                     <input
                         type="text"
                         className="w-full bg-transparent border-none outline-none text-[#130016] font-medium text-lg"

@@ -17,7 +17,7 @@ export function TermsStep({ onNext, onBack }: TermsStepProps) {
                 <div className="relative">
                     {/* Simple illustration of person with phone */}
                     <div className="w-32 h-32 bg-emerald-50 rounded-full flex items-center justify-center mx-auto">
-                        <span className="text-[#da0081] font-cursive text-2xl">A Tu Ritmo</span>
+                        <span className="text-[#059669] font-cursive text-2xl">A Tu Ritmo</span>
                     </div>
                 </div>
             </div>
@@ -28,12 +28,12 @@ export function TermsStep({ onNext, onBack }: TermsStepProps) {
             </div>
 
             <div className="flex-1 overflow-y-auto pr-2 text-xs text-gray-600 space-y-3 mb-4">
-                <p><span className="text-[#da0081] font-bold">Los requisitos:</span> Debes ser mayor de edad, vivir en Colombia, tener cédula, Permiso por Protección Temporal (migrantes venezolanos PPT) o tarjeta de identidad, y poder firmar contratos legales.</p>
-                <p><span className="text-[#da0081] font-bold">Tu Nesqui:</span> Es un Depósito de Bajo Monto ligado a tu celular u otros datos que elijas en el sistema de pagos. Solo puedes tener uno con nosotros.</p>
-                <p><span className="text-[#da0081] font-bold">Tu información:</span> Debes compartirnos toda la información y documentación necesaria para que te conozcamos mejor.</p>
-                <p><span className="text-[#da0081] font-bold">Tus límites:</span> Por ley, tu saldo y débitos mensuales no pueden superar 210.50 UVT. Estás exento del 4x1000 hasta 65 UVT al mes.</p>
+                <p><span className="text-[#059669] font-bold">Los requisitos:</span> Debes ser mayor de edad, vivir en Colombia, tener cédula, Permiso por Protección Temporal (migrantes venezolanos PPT) o tarjeta de identidad, y poder firmar contratos legales.</p>
+                <p><span className="text-[#059669] font-bold">Tu Nesqui:</span> Es un Depósito de Bajo Monto ligado a tu celular u otros datos que elijas en el sistema de pagos. Solo puedes tener uno con nosotros.</p>
+                <p><span className="text-[#059669] font-bold">Tu información:</span> Debes compartirnos toda la información y documentación necesaria para que te conozcamos mejor.</p>
+                <p><span className="text-[#059669] font-bold">Tus límites:</span> Por ley, tu saldo y débitos mensuales no pueden superar 210.50 UVT. Estás exento del 4x1000 hasta 65 UVT al mes.</p>
 
-                <h3 className="text-[#da0081] font-bold mt-4">Aceptación Reglamento Depósito de Bajo Monto</h3>
+                <h3 className="text-[#059669] font-bold mt-4">Aceptación Reglamento Depósito de Bajo Monto</h3>
                 <p>¡Hola! Nos encanta que quieras tener Nesqui para manejar la plata #ATuRitmo. Con la aceptación de este Reglamento das el paso final para abrir tu Depósito de Bajo Monto, más conocido como 'Tu Nesqui'. Este Depósito de Bajo Monto es habilitado por BANCOLOMBIA S.A. a través de su línea de negocio Nesqui (en adelante "Nesqui"), y tiene los términos y condiciones que te contamos a continuación.</p>
                 <p>Ten en cuenta que a este Reglamento le aplican las normas vigentes y lo puedes encontrar publicado en nuestro sitio</p>
             </div>

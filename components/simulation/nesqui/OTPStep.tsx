@@ -18,7 +18,7 @@ export function OTPStep({ otp, setOtp, phoneNumber, onNext, onBack }: OTPStepPro
 
             <h1 className="text-2xl font-bold text-[#130016] mb-2">Escribe el código</h1>
             <p className="text-gray-500 mb-8">
-                Te lo enviamos en un mensaje de texto al <span className="text-[#da0081] font-bold">{phoneNumber || "300..."}</span>
+                Te lo enviamos en un mensaje de texto al <span className="text-[#059669] font-bold">{phoneNumber || "300..."}</span>
             </p>
 
             <div className="flex justify-between gap-4 mb-8">
@@ -28,14 +28,14 @@ export function OTPStep({ otp, setOtp, phoneNumber, onNext, onBack }: OTPStepPro
                     </div>
                 ))}
                 <div className="h-16 w-14 flex items-center justify-center">
-                    <div className="p-2 border border-[#da0081] rounded-lg">
+                    <div className="p-2 border border-[#059669] rounded-lg">
                         <div className="w-4 h-4 bg-emerald-600 rounded-full"></div>
                     </div>
                 </div>
             </div>
 
-            <div className="flex items-center gap-2 text-[#da0081] font-medium mb-auto">
-                <div className="w-5 h-5 rounded-full border-2 border-[#da0081] flex items-center justify-center">
+            <div className="flex items-center gap-2 text-[#059669] font-medium mb-auto">
+                <div className="w-5 h-5 rounded-full border-2 border-[#059669] flex items-center justify-center">
                     <span className="text-xs">↻</span>
                 </div>
                 <span>¿No te llegó? ¡Podemos llamarte!</span>
@@ -50,7 +50,7 @@ export function OTPStep({ otp, setOtp, phoneNumber, onNext, onBack }: OTPStepPro
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
                     <div
                         key={num}
-                        className="cursor-pointer active:text-[#da0081]"
+                        className="cursor-pointer active:text-[#059669]"
                         onClick={() => {
                             const index = otp.findIndex(d => d === "")
                             if (index !== -1) {

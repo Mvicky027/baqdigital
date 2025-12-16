@@ -22,7 +22,7 @@ export function TuraRedirectModal({ onClose }: TuraRedirectModalProps) {
                     <div className="flex justify-end">
                         <button
                             onClick={onClose}
-                            className="bg-[#0033a0] text-white px-8 py-2 rounded-full font-bold text-sm hover:bg-[#002a80] transition-colors uppercase"
+                            className="bg-[#5b21b6] text-white px-8 py-2 rounded-full font-bold text-sm hover:bg-[#002a80] transition-colors uppercase"
                         >
                             Entendido
                         </button>

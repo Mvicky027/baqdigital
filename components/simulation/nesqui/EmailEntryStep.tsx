@@ -30,7 +30,7 @@ export function EmailEntryStep({ email, setEmail, confirmEmail, setConfirmEmail,
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
-                    <Pencil className="w-5 h-5 text-[#da0081]" />
+                    <Pencil className="w-5 h-5 text-[#059669]" />
                 </div>
                 <div className="bg-gray-50 p-4 rounded-lg">
                     <input
@@ -68,12 +68,12 @@ export function EmailEntryStep({ email, setEmail, confirmEmail, setConfirmEmail,
                         </div>
                         <div className="flex justify-center mb-4">
                             <div className="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center">
-                                <Mail className="w-8 h-8 text-[#da0081]" />
+                                <Mail className="w-8 h-8 text-[#059669]" />
                             </div>
                         </div>
                         <h3 className="text-xl font-bold text-[#130016] mb-4">Necesitamos confirmar tu correo</h3>
                         <p className="text-gray-600 mb-2">Vamos a enviarte un código a</p>
-                        <p className="text-[#da0081] font-medium mb-4">{email}</p>
+                        <p className="text-[#059669] font-medium mb-4">{email}</p>
                         <p className="text-gray-600 mb-6">para que confirmes el correo que vas a usar con tu Nesqui.</p>
 
                         <button

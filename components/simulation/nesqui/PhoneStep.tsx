@@ -18,7 +18,7 @@ export function PhoneStep({ phoneNumber, setPhoneNumber, onNext, onBack }: Phone
             <h1 className="text-2xl font-bold text-[#130016] mb-8">Escribe tu cel</h1>
 
             <div className="bg-gray-50 p-4 rounded-lg mb-4 flex items-center">
-                <span className="text-[#da0081] font-bold text-xl mr-4">+57</span>
+                <span className="text-[#059669] font-bold text-xl mr-4">+57</span>
                 <span className="text-gray-300 text-xl">|</span>
                 <input
                     type="tel"
@@ -37,7 +37,7 @@ export function PhoneStep({ phoneNumber, setPhoneNumber, onNext, onBack }: Phone
             <div className="mt-6">
                 <div className="flex items-start gap-3 mb-6">
                     <div className="mt-1">
-                        <input type="checkbox" className="w-5 h-5 accent-[#da0081] rounded" defaultChecked />
+                        <input type="checkbox" className="w-5 h-5 accent-[#059669] rounded" defaultChecked />
                     </div>
                     <p className="text-sm text-gray-600">
                         Marca esta opción para enviarte el mensaje de texto que te permitirá vincular tu cel con Nesqui.

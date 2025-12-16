@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Calendar } from "lucide-react"
+import { Calendar, ChevronLeft } from "lucide-react"
 
 interface TuraAppointmentsListStepProps {
     onTabChange: (tab: 'assign' | 'list') => void
@@ -18,7 +18,7 @@ export function TuraAppointmentsListStep({ onTabChange, onCancel }: TuraAppointm
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('/api/simulations/sura/user')
+                const response = await fetch('/api/simulations/tura/user')
                 if (response.ok) {
                     const data = await response.json()
                     setApiData(data)
@@ -37,6 +37,17 @@ export function TuraAppointmentsListStep({ onTabChange, onCancel }: TuraAppointm
     return (
         <div className="min-h-screen bg-white font-sans">
             <div className="container mx-auto px-4 py-8 max-w-5xl">
+                {/* Back Button */}
+                <div className="mb-6">
+                    <button
+                        onClick={() => window.location.href = '/dashboard'}
+                        className="flex items-center gap-2 text-gray-500 hover:text-violet-800 transition-colors font-medium text-sm"
+                    >
+                        <ChevronLeft className="w-4 h-4" />
+                        Volver al Dashboard
+                    </button>
+                </div>
+
                 {/* Tabs */}
                 <div className="flex gap-4 mb-8">
                     <button
@@ -56,8 +67,11 @@ export function TuraAppointmentsListStep({ onTabChange, onCancel }: TuraAppointm
                 <div className="border border-gray-200 rounded-lg shadow-sm bg-white">
                     {/* Card Header */}
                     <div className="flex justify-between items-center p-4 border-b border-gray-200">
-                        <h2 className="text-[#0033a0] font-bold text-sm uppercase">CONSULTA, PAGO Y CANCELACIÓN DE CITAS</h2>
-                        <button className="bg-[#dc3545] text-white px-3 py-1 rounded text-xs font-medium">
+                        <h2 className="text-[#5b21b6] font-bold text-sm uppercase">CONSULTA, PAGO Y CANCELACIÓN DE CITAS</h2>
+                        <button
+                            onClick={() => window.location.href = '/dashboard'}
+                            className="bg-[#dc3545] text-white px-3 py-1 rounded text-xs font-medium hover:bg-red-700 transition-colors"
+                        >
                             Cerrar sesión
                         </button>
                     </div>
@@ -114,7 +128,7 @@ export function TuraAppointmentsListStep({ onTabChange, onCancel }: TuraAppointm
                                 </div>
 
                                 <div className="border border-gray-200 rounded overflow-hidden">
-                                    <div className="bg-[#0033a0] text-white text-[10px] font-bold grid grid-cols-7 text-center p-2">
+                                    <div className="bg-[#5b21b6] text-white text-[10px] font-bold grid grid-cols-7 text-center p-2">
                                         <div className="col-span-1">FECHA - HORA</div>
                                         <div className="col-span-1">IPS</div>
                                         <div className="col-span-1">SERVICIO</div>

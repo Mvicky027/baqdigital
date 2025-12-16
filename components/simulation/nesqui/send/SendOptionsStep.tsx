@@ -21,7 +21,7 @@ export function SendOptionsStep({ onSelectOption, onBack }: SendOptionsStepProps
             <div className="space-y-4">
                 <div
                     onClick={() => onSelectOption('nequi')}
-                    className="bg-white p-4 rounded-xl flex items-center justify-between shadow-sm cursor-pointer border border-transparent hover:border-[#da0081] relative overflow-hidden"
+                    className="bg-white p-4 rounded-xl flex items-center justify-between shadow-sm cursor-pointer border border-transparent hover:border-[#059669] relative overflow-hidden"
                 >
                     <div className="flex items-center gap-4">
                         <Users className="w-6 h-6 text-gray-700" />
@@ -34,7 +34,7 @@ export function SendOptionsStep({ onSelectOption, onBack }: SendOptionsStepProps
 
                     {/* Finger tap simulation */}
                     <div className="absolute right-10 top-1/2 transform -translate-y-1/2">
-                        <div className="text-[#da0081] text-2xl animate-pulse">👆</div>
+                        <div className="text-[#059669] text-2xl animate-pulse">👆</div>
                     </div>
                 </div>
 

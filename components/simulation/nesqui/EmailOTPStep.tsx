@@ -18,7 +18,7 @@ export function EmailOTPStep({ emailOtp, setEmailOtp, email, onNext, onBack }: E
 
             <div className="flex justify-between items-center mb-8">
                 <h1 className="text-2xl font-bold text-[#130016]">Ingresa el código</h1>
-                <Pencil className="w-6 h-6 text-[#da0081]" />
+                <Pencil className="w-6 h-6 text-[#059669]" />
             </div>
 
             <div className="flex justify-between gap-2 mb-4">
@@ -32,10 +32,10 @@ export function EmailOTPStep({ emailOtp, setEmailOtp, email, onNext, onBack }: E
             <p className="text-gray-500 text-center text-sm mb-2">
                 Escribe los 6 números del código de confirmación que enviamos a tu correo:
             </p>
-            <p className="text-[#da0081] text-center font-medium mb-8">{email}</p>
+            <p className="text-[#059669] text-center font-medium mb-8">{email}</p>
 
-            <div className="flex items-center justify-center gap-2 text-[#da0081] font-medium mb-auto">
-                <div className="w-5 h-5 rounded-full border-2 border-[#da0081] flex items-center justify-center">
+            <div className="flex items-center justify-center gap-2 text-[#059669] font-medium mb-auto">
+                <div className="w-5 h-5 rounded-full border-2 border-[#059669] flex items-center justify-center">
                     <span className="text-xs">↻</span>
                 </div>
                 <span>¿No te llegó? ¡Pídelo otra vez!</span>
@@ -50,7 +50,7 @@ export function EmailOTPStep({ emailOtp, setEmailOtp, email, onNext, onBack }: E
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
                     <div
                         key={num}
-                        className="cursor-pointer active:text-[#da0081]"
+                        className="cursor-pointer active:text-[#059669]"
                         onClick={() => {
                             const index = emailOtp.findIndex(d => d === "")
                             if (index !== -1) {

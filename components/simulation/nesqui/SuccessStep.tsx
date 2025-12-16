@@ -15,7 +15,7 @@ export function SuccessStep() {
 
                 <div className="mb-6 relative">
                     <ThumbsUp className="w-24 h-24 text-[#130016] stroke-1" />
-                    <div className="absolute -top-4 -left-4 text-[#da0081]">
+                    <div className="absolute -top-4 -left-4 text-[#059669]">
                         {/* Sparkles decoration */}
                         <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z" />
@@ -24,7 +24,7 @@ export function SuccessStep() {
                 </div>
 
                 <div className="mb-6">
-                    <Eye className="w-16 h-16 text-[#da0081] mx-auto" />
+                    <Eye className="w-16 h-16 text-[#059669] mx-auto" />
                 </div>
 
                 <h1 className="text-2xl font-bold text-[#130016] mb-4">
