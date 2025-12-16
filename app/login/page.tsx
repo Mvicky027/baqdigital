@@ -20,6 +20,7 @@ export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
   const [isSlowConnection, setIsSlowConnection] = useState(false)
+  const [debugStatus, setDebugStatus] = useState("") // New debug state
 
   const {
     register,
@@ -37,25 +38,33 @@ export default function LoginPage() {
     // Show "Connecting..." message if request takes > 3s
     const slowTimer = setTimeout(() => {
       setIsSlowConnection(true)
+      setDebugStatus("Conexión lenta... esperando servidor...")
     }, 3000)
 
     try {
-      // Race between server action and a 25s client-side timeout
+      setDebugStatus("Paso 1: Iniciando petición al servidor...")
+
+      // Race between server action and a 10s client-side timeout (reduced for testing)
       const timeoutPromise = new Promise<{ error: string }>((_, reject) => {
-        setTimeout(() => reject(new Error("REQUEST_TIMEOUT")), 25000)
+        setTimeout(() => reject(new Error("REQUEST_TIMEOUT")), 10000)
       })
+
+      setDebugStatus("Paso 2: Enviando credenciales...")
 
       const result = await Promise.race([
         loginAction(data),
         timeoutPromise
       ]) as Awaited<ReturnType<typeof loginAction>>
 
+      setDebugStatus("Paso 3: Respuesta recibida.")
       clearTimeout(slowTimer)
 
       if (result?.error) {
+        setDebugStatus(`Error recibido: ${result.error}`)
         setError(result.error)
         setIsLoading(false)
       } else {
+        setDebugStatus("Éxito! Redirigiendo...")
         router.push("/dashboard")
       }
     } catch (err: any) {
@@ -63,9 +72,11 @@ export default function LoginPage() {
       setIsLoading(false)
 
       if (err.message === "REQUEST_TIMEOUT") {
-        setError("El servidor está tardando demasiado en responder. Posiblemente se está reiniciando. Por favor intenta de nuevo en 30 segundos.")
+        setDebugStatus("TIMEOUT: El cliente canceló la espera.")
+        setError("El servidor no respondió en 10 segundos. (Prueba de Timeout)")
       } else {
-        setError("Ocurrió un error inesperado al intentar conectar.")
+        setDebugStatus(`Error de red: ${err.message}`)
+        setError(`Error técnico: ${err.message}`)
       }
     }
   }
