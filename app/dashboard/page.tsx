@@ -60,16 +60,32 @@ const courses = [
 export default function DashboardPage() {
   const router = useRouter()
   const [user, setUser] = useState<any>(null)
+  const [loading, setLoading] = useState(true)
   const [selectedCourse, setSelectedCourse] = useState<(typeof courses)[0] | null>(null)
   const [showDialog, setShowDialog] = useState(false)
 
   useEffect(() => {
-    const currentUser = localStorage.getItem("baq_current_user")
-    if (!currentUser) {
-      router.push("/login")
-    } else {
-      setUser(JSON.parse(currentUser))
+    async function loadUserData() {
+      try {
+        // Fetch session from NextAuth
+        const response = await fetch("/api/auth/session")
+        const session = await response.json()
+
+        if (!session || !session.user) {
+          router.push("/login")
+          return
+        }
+
+        setUser(session.user)
+      } catch (error) {
+        console.error("Error loading user data:", error)
+        router.push("/login")
+      } finally {
+        setLoading(false)
+      }
     }
+
+    loadUserData()
   }, [router])
 
   const handleCourseClick = (course: (typeof courses)[0]) => {
@@ -83,9 +99,20 @@ export default function DashboardPage() {
     }
   }
 
-  const handleLogout = () => {
-    localStorage.removeItem("baq_current_user")
+  const handleLogout = async () => {
+    await fetch("/api/auth/signout", { method: "POST" })
     router.push("/")
+  }
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin w-12 h-12 border-4 border-blue-900 border-t-transparent rounded-full mx-auto mb-4"></div>
+          <p className="text-gray-600">Cargando...</p>
+        </div>
+      </div>
+    )
   }
 
   if (!user) return null

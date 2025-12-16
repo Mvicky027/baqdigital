@@ -3,31 +3,31 @@ import { authConfig } from "./auth.config"
 import Credentials from "next-auth/providers/credentials"
 import { z } from "zod"
 import { loginSchema } from "@/lib/zod"
+import { apiClient } from "@/lib/api-client"
 
-// Placeholder for external backend validation
+// Validate credentials with backend API
 async function validateWithBackend(credentials: z.infer<typeof loginSchema>) {
-    // TODO: Implement actual API call to external backend here
-    // Example:
-    // const res = await fetch("https://api.external.com/auth/login", {
-    //   method: "POST",
-    //   body: JSON.stringify(credentials),
-    //   headers: { "Content-Type": "application/json" }
-    // })
-    // const user = await res.json()
-    // if (res.ok && user) return user
+    try {
+        const { data, error } = await apiClient.login(credentials)
 
-    console.log("Validating with backend:", credentials)
-
-    // Mock success for now
-    if (credentials.password === "password" || credentials.password.length >= 6) {
-        return {
-            id: "1",
-            name: "Test User",
-            email: credentials.email,
+        if (error || !data) {
+            console.error("Backend validation failed:", error)
+            return null
         }
-    }
 
-    return null
+        // Return user with tokens for session
+        // LoginData includes: accessToken, refreshToken, id, name, email, role, adultMode
+        return {
+            id: data.id.toString(),
+            name: data.name,
+            email: data.email,
+            accessToken: data.accessToken,
+            refreshToken: data.refreshToken,
+        }
+    } catch (error) {
+        console.error("Error validating with backend:", error)
+        return null
+    }
 }
 
 export const { auth, signIn, signOut } = NextAuth({
@@ -47,4 +47,24 @@ export const { auth, signIn, signOut } = NextAuth({
             },
         }),
     ],
+    callbacks: {
+        async jwt({ token, user }) {
+            // Initial sign in
+            if (user) {
+                token.id = user.id
+                token.accessToken = user.accessToken || ""
+                token.refreshToken = user.refreshToken || ""
+            }
+            return token
+        },
+        async session({ session, token }) {
+            // Add user info and tokens to session
+            if (token) {
+                session.user.id = token.id as string
+                session.accessToken = token.accessToken as string
+                session.refreshToken = token.refreshToken as string
+            }
+            return session
+        },
+    },
 })

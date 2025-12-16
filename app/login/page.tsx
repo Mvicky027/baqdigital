@@ -96,30 +96,55 @@ export default function LoginPage() {
         </div>
 
         {error && (
-          <div className="text-sm text-red-600 bg-red-50 p-3 rounded-lg flex items-center gap-2">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="text-sm text-red-600 bg-red-50 p-4 rounded-lg flex items-start gap-3 border border-red-100 animate-in slide-in-from-top-2 duration-300">
+            <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <circle cx="12" cy="12" r="10" strokeWidth="2" />
-              <line x1="12" y1="8" x2="12" y2="12" strokeWidth="2" />
+              <line x1="12" y1="8" x2="12" y2="12" strokeWidth="2" strokeLinecap="round" />
               <circle cx="12" cy="16" r="1" fill="currentColor" />
             </svg>
-            {error}
+            <span className="flex-1">{error}</span>
           </div>
         )}
 
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full h-12 bg-[#0a2540] hover:bg-[#132f4c] text-white font-medium rounded-lg transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-70"
+          className="w-full h-12 bg-[#0a2540] hover:bg-[#132f4c] text-white font-medium rounded-lg transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed shadow-sm hover:shadow-md"
         >
           {isLoading ? (
             <>
               <svg className="animate-spin w-5 h-5" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeDasharray="32" strokeDashoffset="12" />
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeDasharray="32"
+                  strokeDashoffset="12"
+                  className="opacity-25"
+                />
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeDasharray="32"
+                  strokeDashoffset="12"
+                />
               </svg>
               Iniciando sesión...
             </>
           ) : (
-            "Iniciar sesión"
+            <>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+              </svg>
+              Iniciar sesión
+            </>
           )}
         </button>
       </form>

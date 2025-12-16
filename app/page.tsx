@@ -2,6 +2,7 @@ import { Header } from "@/components/landing/Header"
 import { HeroSection } from "@/components/landing/HeroSection"
 import { InfoBanner } from "@/components/landing/InfoBanner"
 import { AllianceSection } from "@/components/landing/AllianceSection"
+import { Footer } from "@/components/landing/Footer"
 
 export default function LandingPage() {
   return (
@@ -17,6 +18,9 @@ export default function LandingPage() {
 
       {/* 4. ALLIANCE SECTION - Sección "Acerca de nosotros" con logos grandes */}
       <AllianceSection />
+
+      {/* 5. FOOTER - Información de contacto y enlaces */}
+      <Footer />
     </div>
   )
 }

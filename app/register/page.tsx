@@ -17,6 +17,7 @@ type RegisterFormValues = z.infer<typeof registerSchema>
 export default function RegisterPage() {
   const router = useRouter()
   const [error, setError] = useState("")
+  const [success, setSuccess] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
   const {
@@ -29,6 +30,7 @@ export default function RegisterPage() {
 
   const onSubmit = async (data: RegisterFormValues) => {
     setError("")
+    setSuccess(false)
     setIsLoading(true)
 
     try {
@@ -37,7 +39,10 @@ export default function RegisterPage() {
         setError(result.error)
         setIsLoading(false)
       } else {
-        router.push("/dashboard")
+        setSuccess(true)
+        setTimeout(() => {
+          router.push("/dashboard")
+        }, 1000)
       }
     } catch (err) {
       setError("Ocurrió un error inesperado")
@@ -114,30 +119,52 @@ export default function RegisterPage() {
         </div>
 
         {error && (
-          <div className="text-sm text-red-600 bg-red-50 p-3 rounded-lg flex items-center gap-2">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="text-sm text-red-600 bg-red-50 p-4 rounded-lg flex items-start gap-3 border border-red-100 animate-in slide-in-from-top-2 duration-300">
+            <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <circle cx="12" cy="12" r="10" strokeWidth="2" />
-              <line x1="12" y1="8" x2="12" y2="12" strokeWidth="2" />
+              <line x1="12" y1="8" x2="12" y2="12" strokeWidth="2" strokeLinecap="round" />
               <circle cx="12" cy="16" r="1" fill="currentColor" />
             </svg>
-            {error}
+            <span className="flex-1">{error}</span>
+          </div>
+        )}
+
+        {success && (
+          <div className="text-sm text-green-600 bg-green-50 p-4 rounded-lg flex items-start gap-3 border border-green-100 animate-in slide-in-from-top-2 duration-300">
+            <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span className="flex-1">¡Cuenta creada exitosamente! Redirigiendo...</span>
           </div>
         )}
 
         <button
           type="submit"
-          disabled={isLoading}
-          className="w-full h-12 bg-[#0a2540] hover:bg-[#132f4c] text-white font-medium rounded-lg transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-70"
+          disabled={isLoading || success}
+          className="w-full h-12 bg-[#0a2540] hover:bg-[#132f4c] text-white font-medium rounded-lg transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed shadow-sm hover:shadow-md"
         >
-          {isLoading ? (
+          {success ? (
+            <>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              ¡Cuenta creada!
+            </>
+          ) : isLoading ? (
             <>
               <svg className="animate-spin w-5 h-5" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeDasharray="32" strokeDashoffset="12" className="opacity-25" />
                 <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeDasharray="32" strokeDashoffset="12" />
               </svg>
               Creando cuenta...
             </>
           ) : (
-            "Registrarse"
+            <>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+              </svg>
+              Registrarse
+            </>
           )}
         </button>
 

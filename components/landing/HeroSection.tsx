@@ -1,9 +1,18 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
+import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 export function HeroSection() {
+    const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 })
+
     return (
-        <section className="max-w-7xl mx-auto px-6 py-10">
+        <section
+            ref={ref}
+            className={`max-w-7xl mx-auto px-6 py-10 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                }`}
+        >
             <div className="grid md:grid-cols-2 gap-8 items-start">
                 {/* Left Content - Text */}
                 <div className="pt-4">
@@ -21,7 +30,7 @@ export function HeroSection() {
                     <div className="flex gap-3">
                         <Link href="/login">
                             <button className="border-2 border-[#0a2540] text-[#0a2540] text-[14px] font-medium px-5 py-2.5 rounded hover:bg-[#0a2540] hover:text-white transition-colors">
-                                Iniciar sesion
+                                Iniciar sesión
                             </button>
                         </Link>
                         <Link href="#nosotros">
