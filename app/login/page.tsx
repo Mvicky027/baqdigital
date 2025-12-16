@@ -19,6 +19,7 @@ export default function LoginPage() {
   const [error, setError] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
+  const [isSlowConnection, setIsSlowConnection] = useState(false)
 
   const {
     register,
@@ -31,9 +32,16 @@ export default function LoginPage() {
   const onSubmit = async (data: LoginFormValues) => {
     setError("")
     setIsLoading(true)
+    setIsSlowConnection(false)
+
+    // Show "Connecting..." message if request takes > 3s
+    const slowTimer = setTimeout(() => {
+      setIsSlowConnection(true)
+    }, 3000)
 
     try {
       const result = await loginAction(data)
+      clearTimeout(slowTimer)
       if (result?.error) {
         setError(result.error)
         setIsLoading(false)
@@ -46,6 +54,7 @@ export default function LoginPage() {
         router.push("/dashboard")
       }
     } catch (err) {
+      clearTimeout(slowTimer)
       setError("Ocurrió un error inesperado")
       setIsLoading(false)
     }
@@ -155,7 +164,7 @@ export default function LoginPage() {
                   strokeDashoffset="12"
                 />
               </svg>
-              Iniciando sesión...
+              {isSlowConnection ? "Conectando con el servidor..." : "Iniciando sesión..."}
             </>
           ) : (
             <>
@@ -175,6 +184,6 @@ export default function LoginPage() {
           Regístrate aquí
         </Link>
       </div>
-    </AuthLayout>
+    </AuthLayout >
   )
 }

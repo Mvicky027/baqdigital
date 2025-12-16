@@ -87,6 +87,22 @@ class ApiClient {
             },
         })
     }
+
+    // Performance: Wake up Render free tier server
+    async warmUp(): Promise<void> {
+        try {
+            // Fire and forget request to wake up the server
+            // Using HEAD request to generic endpoint to minimize data transfer
+            await fetch(`${this.baseUrl}/auth/login`, {
+                method: "HEAD",
+                mode: 'no-cors' // Don't care about response, just want to reach the server
+            })
+            console.log("Backend warm-up triggered")
+        } catch (e) {
+            // Ignore errors, this is just a warm-up
+            console.log("Warm-up trigger silent fail", e)
+        }
+    }
 }
 
 export const apiClient = new ApiClient(API_BASE_URL)
