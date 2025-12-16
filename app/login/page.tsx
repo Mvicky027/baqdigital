@@ -124,13 +124,19 @@ export default function LoginPage() {
         </div>
 
         {error && (
-          <div className="text-sm text-red-600 bg-red-50 p-4 rounded-lg flex items-start gap-3 border border-red-100 animate-in slide-in-from-top-2 duration-300">
-            <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="10" strokeWidth="2" />
-              <line x1="12" y1="8" x2="12" y2="12" strokeWidth="2" strokeLinecap="round" />
-              <circle cx="12" cy="16" r="1" fill="currentColor" />
-            </svg>
-            <span className="flex-1">{error}</span>
+          <div className="text-sm text-red-600 bg-red-50 p-4 rounded-lg flex flex-col gap-2 border border-red-100 animate-in slide-in-from-top-2 duration-300">
+            <div className="flex items-center gap-3">
+              <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" strokeWidth="2" />
+                <line x1="12" y1="8" x2="12" y2="12" strokeWidth="2" strokeLinecap="round" />
+                <circle cx="12" cy="16" r="1" fill="currentColor" />
+              </svg>
+              <span className="font-medium">{error}</span>
+            </div>
+            {/* Debug info for user */}
+            <p className="text-xs text-red-400 pl-8">
+              Si el problema persiste, por favor recarga la página e intenta de nuevo.
+            </p>
           </div>
         )}
 

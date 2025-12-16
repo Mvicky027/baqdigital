@@ -26,9 +26,9 @@ class ApiClient {
         try {
             const url = `${this.baseUrl}${endpoint}`
 
-            // Add timeout of 15 seconds
+            // Add timeout of 60 seconds (Render cold start can be slow)
             const controller = new AbortController()
-            const id = setTimeout(() => controller.abort(), 15000)
+            const id = setTimeout(() => controller.abort(), 60000)
 
             const response = await fetch(url, {
                 ...options,
