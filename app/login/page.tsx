@@ -64,8 +64,9 @@ export default function LoginPage() {
         setError(result.error)
         setIsLoading(false)
       } else {
-        setDebugStatus("Éxito! Redirigiendo...")
-        router.push("/dashboard")
+        setDebugStatus("Éxito! Redirigiendo (Forzando)...")
+        // router.push("/dashboard") - soft navigation failing
+        window.location.href = "/dashboard" // Hard navigation to ensure session pickup
       }
     } catch (err: any) {
       clearTimeout(slowTimer)
