@@ -46,7 +46,7 @@ export function DashboardStep({ onSend }: DashboardStepProps) {
             </div>
 
             {/* Pink decoration behind header */}
-            <div className="absolute top-40 left-0 right-0 h-20 bg-[#da0081] -skew-y-3 z-0"></div>
+            <div className="absolute top-40 left-0 right-0 h-20 bg-emerald-600 -skew-y-3 z-0"></div>
 
             {/* Main Actions Grid */}
             <div className="p-6 pt-8">
@@ -60,15 +60,15 @@ export function DashboardStep({ onSend }: DashboardStepProps) {
                         <div className="w-14 h-14 bg-white border border-gray-200 rounded-xl flex items-center justify-center shadow-sm">
                             <Smartphone className="text-[#da0081]" />
                         </div>
-                        <span className="text-xs text-center text-gray-600">Tarjeta Nequi</span>
+                        <span className="text-xs text-center text-gray-600">Tarjeta Nesqui</span>
                     </div>
                     <div className="flex flex-col items-center gap-2">
                         <div className="w-14 h-14 bg-white border border-gray-200 rounded-xl flex items-center justify-center shadow-sm">
                             <div className="grid grid-cols-2 gap-1">
-                                <div className="w-1 h-1 bg-[#da0081] rounded-full"></div>
-                                <div className="w-1 h-1 bg-[#da0081] rounded-full"></div>
-                                <div className="w-1 h-1 bg-[#da0081] rounded-full"></div>
-                                <div className="w-1 h-1 bg-[#da0081] rounded-full"></div>
+                                <div className="w-1 h-1 bg-emerald-600 rounded-full"></div>
+                                <div className="w-1 h-1 bg-emerald-600 rounded-full"></div>
+                                <div className="w-1 h-1 bg-emerald-600 rounded-full"></div>
+                                <div className="w-1 h-1 bg-emerald-600 rounded-full"></div>
                             </div>
                         </div>
                         <span className="text-xs text-center text-gray-600">Colchón</span>
@@ -109,14 +109,14 @@ export function DashboardStep({ onSend }: DashboardStepProps) {
 
                             <div className="flex items-center gap-4 animate-in slide-in-from-bottom-3 fade-in duration-200">
                                 <span className="text-white font-medium">Saca</span>
-                                <button className="bg-[#da0081] text-white p-3 rounded-full shadow-lg w-12 h-12 flex items-center justify-center">
+                                <button className="bg-emerald-600 text-white p-3 rounded-full shadow-lg w-12 h-12 flex items-center justify-center">
                                     <ArrowUp className="w-6 h-6" />
                                 </button>
                             </div>
 
                             <div className="flex items-center gap-4 animate-in slide-in-from-bottom-4 fade-in duration-200">
                                 <span className="text-white font-medium">Pide</span>
-                                <button className="bg-[#da0081] text-white p-3 rounded-full shadow-lg w-12 h-12 flex items-center justify-center">
+                                <button className="bg-emerald-600 text-white p-3 rounded-full shadow-lg w-12 h-12 flex items-center justify-center">
                                     <ArrowLeft className="w-6 h-6 rotate-180" />
                                 </button>
                             </div>
@@ -127,7 +127,7 @@ export function DashboardStep({ onSend }: DashboardStepProps) {
                                 </div>
                                 <button
                                     onClick={onSend}
-                                    className="bg-[#da0081] text-white p-3 rounded-full shadow-lg w-12 h-12 flex items-center justify-center"
+                                    className="bg-emerald-600 text-white p-3 rounded-full shadow-lg w-12 h-12 flex items-center justify-center"
                                 >
                                     <ArrowRight className="w-6 h-6" />
                                 </button>
@@ -135,14 +135,14 @@ export function DashboardStep({ onSend }: DashboardStepProps) {
 
                             <div className="flex items-center gap-4 animate-in slide-in-from-bottom-6 fade-in duration-200">
                                 <span className="text-white font-medium">Código QR</span>
-                                <button className="bg-[#da0081] text-white p-3 rounded-full shadow-lg w-12 h-12 flex items-center justify-center">
+                                <button className="bg-emerald-600 text-white p-3 rounded-full shadow-lg w-12 h-12 flex items-center justify-center">
                                     <QrCode className="w-6 h-6" />
                                 </button>
                             </div>
 
                             <div className="flex items-center gap-4 animate-in slide-in-from-bottom-7 fade-in duration-200">
-                                <span className="text-white font-medium">Recarga Nequi</span>
-                                <button className="bg-[#da0081] text-white p-3 rounded-full shadow-lg w-12 h-12 flex items-center justify-center">
+                                <span className="text-white font-medium">Recarga Nesqui</span>
+                                <button className="bg-emerald-600 text-white p-3 rounded-full shadow-lg w-12 h-12 flex items-center justify-center">
                                     <ArrowUp className="w-6 h-6" />
                                 </button>
                             </div>
@@ -157,7 +157,7 @@ export function DashboardStep({ onSend }: DashboardStepProps) {
                     ) : (
                         <button
                             onClick={() => setIsMenuOpen(true)}
-                            className="bg-[#da0081] text-white w-14 h-14 rounded-lg flex items-center justify-center font-bold text-2xl shadow-lg hover:scale-105 transition-transform"
+                            className="bg-emerald-600 text-white w-14 h-14 rounded-lg flex items-center justify-center font-bold text-2xl shadow-lg hover:scale-105 transition-transform"
                         >
                             $
                         </button>

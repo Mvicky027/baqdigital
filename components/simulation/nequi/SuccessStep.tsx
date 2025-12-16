@@ -9,7 +9,7 @@ export function SuccessStep() {
         <div className="flex flex-col h-full bg-[#130016] p-6 relative">
             {/* Overlay Modal style */}
             <div className="bg-white rounded-2xl p-6 flex flex-col items-center text-center h-full my-auto justify-center relative">
-                <div className="absolute top-0 left-0 bg-[#da0081] text-white w-10 h-10 rounded-full flex items-center justify-center -mt-4 -ml-2 font-bold text-lg">
+                <div className="absolute top-0 left-0 bg-emerald-600 text-white w-10 h-10 rounded-full flex items-center justify-center -mt-4 -ml-2 font-bold text-lg">
                     14
                 </div>
 
@@ -28,16 +28,16 @@ export function SuccessStep() {
                 </div>
 
                 <h1 className="text-2xl font-bold text-[#130016] mb-4">
-                    ¡La creación de tu Nequi fue todo un éxito!
+                    ¡La creación de tu Nesqui fue todo un éxito!
                 </h1>
 
                 <p className="text-gray-600 mb-8 leading-relaxed">
-                    <span className="font-bold">El número de tu Nequi es el mismo de tu celular.</span> Creaste un depósito de bajo monto. Si lo necesitas, puedes cambiarlo a una cuenta de ahorros desde las opciones de tu perfil y manejar tu plata A Tu Ritmo.
+                    <span className="font-bold">El número de tu Nesqui es el mismo de tu celular.</span> Creaste un depósito de bajo monto. Si lo necesitas, puedes cambiarlo a una cuenta de ahorros desde las opciones de tu perfil y manejar tu plata A Tu Ritmo.
                 </p>
 
                 <button
                     onClick={() => router.push('/dashboard')}
-                    className="w-full bg-[#da0081] hover:bg-[#b5006b] text-white font-medium py-4 rounded-lg transition-colors text-lg mt-auto"
+                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-4 rounded-lg transition-colors text-lg mt-auto"
                 >
                     Listo
                 </button>

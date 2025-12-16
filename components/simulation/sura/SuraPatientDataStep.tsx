@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { Calendar } from "lucide-react"
 
-interface SuraPatientDataStepProps {
+interface TuraPatientDataStepProps {
     onNext: () => void
 }
 
-export function SuraPatientDataStep({ onNext }: SuraPatientDataStepProps) {
+export function TuraPatientDataStep({ onNext }: TuraPatientDataStepProps) {
     const [idType, setIdType] = useState("CÉDULA DE CIUDADANÍA")
     const [idNumber, setIdNumber] = useState("")
     const [phone, setPhone] = useState("")

@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { ChevronDown } from "lucide-react"
 
-interface SuraLoginStepProps {
+interface TuraLoginStepProps {
     onLogin: () => void
 }
 
-export function SuraLoginStep({ onLogin }: SuraLoginStepProps) {
+export function TuraLoginStep({ onLogin }: TuraLoginStepProps) {
     const [idType, setIdType] = useState("Cédula de Ciudadanía")
     const [idNumber, setIdNumber] = useState("")
     const [password, setPassword] = useState("")
@@ -98,7 +98,7 @@ export function SuraLoginStep({ onLogin }: SuraLoginStepProps) {
 
             {/* Bottom Footer */}
             <div className="mt-auto py-6 text-center text-xs text-gray-500 flex gap-4 justify-center w-full border-t border-gray-100">
-                <span>© 2025 Suramericana S.A</span>
+                <span>© 2025 Turamericana S.A</span>
                 <a href="#" className="text-[#0033a0]">Ayuda</a>
                 <a href="#" className="text-[#0033a0]">Privacidad</a>
                 <a href="#" className="text-[#0033a0]">Seguridad</a>

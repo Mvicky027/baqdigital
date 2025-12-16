@@ -18,7 +18,7 @@ import { TermsStep } from "@/components/simulation/nequi/TermsStep"
 import { CreatePINStep } from "@/components/simulation/nequi/CreatePINStep"
 import { SuccessStep } from "@/components/simulation/nequi/SuccessStep"
 
-export default function NequiSimulationPage() {
+export default function NesquiSimulationPage() {
     const router = useRouter()
     const [step, setStep] = useState(1)
     const [loading, setLoading] = useState(false)

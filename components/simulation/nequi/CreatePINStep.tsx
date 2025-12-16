@@ -13,14 +13,14 @@ export function CreatePINStep({ onNext }: CreatePINStepProps) {
             <div className="bg-[#4dd0e1] text-[#130016] p-4 rounded-lg mb-8 flex items-start gap-3">
                 <Info className="w-6 h-6 shrink-0 mt-1" />
                 <p className="text-sm">
-                    ¡Recuerda! La clave de tu Nequi no debe ser la misma para desbloquear tu cel ;)
+                    ¡Recuerda! La clave de tu Nesqui no debe ser la misma para desbloquear tu cel ;)
                 </p>
             </div>
 
             <h1 className="text-2xl font-bold text-[#130016] mb-8">Crea tu clave</h1>
 
             <div className="flex items-center gap-2 mb-8">
-                <div className="w-8 h-8 bg-[#da0081] rounded-full flex items-center justify-center text-white font-bold">13</div>
+                <div className="w-8 h-8 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold">13</div>
                 <div className="flex gap-4 ml-4">
                     {[0, 1, 2, 3].map((i) => (
                         <div key={i} className="w-14 h-14 bg-gray-100 rounded-lg flex items-center justify-center text-2xl font-bold">

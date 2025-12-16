@@ -2,16 +2,16 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { SuraLoginStep } from "@/components/simulation/sura/SuraLoginStep"
-import { SuraDashboardStep } from "@/components/simulation/sura/SuraDashboardStep"
-import { SuraPatientDataStep } from "@/components/simulation/sura/SuraPatientDataStep"
-import { SuraRedirectModal } from "@/components/simulation/sura/SuraRedirectModal"
-import { SuraAppointmentStep } from "@/components/simulation/sura/SuraAppointmentStep"
-import { SuraAppointmentConfirmationModal } from "@/components/simulation/sura/SuraAppointmentConfirmationModal"
-import { SuraAppointmentsListStep } from "@/components/simulation/sura/SuraAppointmentsListStep"
-import { SuraMessageModal } from "@/components/simulation/sura/SuraMessageModal"
+import { TuraLoginStep } from "@/components/simulation/sura/TuraLoginStep"
+import { TuraDashboardStep } from "@/components/simulation/sura/TuraDashboardStep"
+import { TuraPatientDataStep } from "@/components/simulation/sura/TuraPatientDataStep"
+import { TuraRedirectModal } from "@/components/simulation/sura/TuraRedirectModal"
+import { TuraAppointmentStep } from "@/components/simulation/sura/TuraAppointmentStep"
+import { TuraAppointmentConfirmationModal } from "@/components/simulation/sura/TuraAppointmentConfirmationModal"
+import { TuraAppointmentsListStep } from "@/components/simulation/sura/TuraAppointmentsListStep"
+import { TuraMessageModal } from "@/components/simulation/sura/TuraMessageModal"
 
-export default function SuraSimulationPage() {
+export default function TuraSimulationPage() {
     const router = useRouter()
     const [step, setStep] = useState(1)
     const [activeTab, setActiveTab] = useState<'assign' | 'list'>('assign')
@@ -47,37 +47,37 @@ export default function SuraSimulationPage() {
     return (
         <div className="min-h-screen bg-gray-50">
             {step === 1 && (
-                <SuraLoginStep onLogin={handleLogin} />
+                <TuraLoginStep onLogin={handleLogin} />
             )}
             {step === 2 && (
-                <SuraDashboardStep onNavigate={handleNavigate} />
+                <TuraDashboardStep onNavigate={handleNavigate} />
             )}
             {step === 3 && (
-                <SuraPatientDataStep onNext={handlePatientDataSubmit} />
+                <TuraPatientDataStep onNext={handlePatientDataSubmit} />
             )}
             {step === 4 && (
-                <SuraRedirectModal onClose={handleRedirectClose} />
+                <TuraRedirectModal onClose={handleRedirectClose} />
             )}
             {step === 5 && (
                 <>
                     {activeTab === 'assign' ? (
-                        <SuraAppointmentStep
+                        <TuraAppointmentStep
                             onAssignAppointment={handleAssignAppointment}
                             onTabChange={setActiveTab}
                         />
                     ) : (
-                        <SuraAppointmentsListStep
+                        <TuraAppointmentsListStep
                             onTabChange={setActiveTab}
                             onCancel={handleCancelAppointment}
                         />
                     )}
 
                     {showConfirmationModal && (
-                        <SuraAppointmentConfirmationModal onClose={() => setShowConfirmationModal(false)} />
+                        <TuraAppointmentConfirmationModal onClose={() => setShowConfirmationModal(false)} />
                     )}
 
                     {showMessageModal && (
-                        <SuraMessageModal onClose={() => setShowMessageModal(false)} />
+                        <TuraMessageModal onClose={() => setShowMessageModal(false)} />
                     )}
                 </>
             )}

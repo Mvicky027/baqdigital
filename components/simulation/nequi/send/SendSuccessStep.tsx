@@ -63,7 +63,7 @@ export function SendSuccessStep({ recipient, amount, onFinish }: SendSuccessStep
                         </div>
 
                         <div className="flex justify-between items-baseline">
-                            <span className="text-gray-500 text-sm">Número Nequi</span>
+                            <span className="text-gray-500 text-sm">Número Nesqui</span>
                             <span className="text-[#130016] font-bold">{recipient}</span>
                         </div>
 
@@ -88,7 +88,7 @@ export function SendSuccessStep({ recipient, amount, onFinish }: SendSuccessStep
             <div className="p-4 bg-[#f2f4f8]">
                 <button
                     onClick={onFinish}
-                    className="w-full bg-[#da0081] hover:bg-[#b5006b] text-white font-medium py-4 rounded-lg transition-colors text-lg"
+                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-4 rounded-lg transition-colors text-lg"
                 >
                     Listo
                 </button>

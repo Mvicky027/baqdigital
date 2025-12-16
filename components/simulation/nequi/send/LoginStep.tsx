@@ -19,14 +19,14 @@ export function LoginStep({ phoneNumber, setPhoneNumber, onNext, onBack }: Login
 
             <div className="flex-1 flex items-center justify-center">
                 <div className="relative">
-                    <span className="text-6xl font-bold text-white tracking-tighter">Nequi</span>
-                    <div className="absolute -top-2 -left-4 w-4 h-4 bg-[#da0081]"></div>
+                    <span className="text-6xl font-bold text-white tracking-tighter">Nesqui</span>
+                    <div className="absolute -top-2 -left-4 w-4 h-4 bg-emerald-600"></div>
                 </div>
             </div>
 
             <div className="mt-auto">
                 <div className="bg-white/10 rounded-lg p-4 mb-4 flex items-center relative">
-                    <div className="absolute -top-3 -right-3 w-8 h-8 bg-[#da0081] rounded-full flex items-center justify-center text-white font-bold text-sm">
+                    <div className="absolute -top-3 -right-3 w-8 h-8 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
                         1
                     </div>
                     <span className="text-gray-400 mr-2">+57</span>
@@ -43,11 +43,11 @@ export function LoginStep({ phoneNumber, setPhoneNumber, onNext, onBack }: Login
                 <div className="flex gap-2">
                     <button
                         onClick={onNext}
-                        className="flex-1 bg-[#da0081] hover:bg-[#b5006b] text-white font-medium py-4 rounded-lg transition-colors"
+                        className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-4 rounded-lg transition-colors"
                     >
                         Entra
                     </button>
-                    <button className="bg-[#da0081] hover:bg-[#b5006b] text-white px-6 rounded-lg font-bold text-xl">
+                    <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 rounded-lg font-bold text-xl">
                         $
                     </button>
                 </div>

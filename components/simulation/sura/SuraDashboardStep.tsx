@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { ChevronDown, User, Calendar, FileText, CreditCard, List, Pill, Hospital, Briefcase, Clock } from "lucide-react"
 
-interface SuraDashboardStepProps {
+interface TuraDashboardStepProps {
     onNavigate: (path: string) => void
 }
 
-export function SuraDashboardStep({ onNavigate }: SuraDashboardStepProps) {
+export function TuraDashboardStep({ onNavigate }: TuraDashboardStepProps) {
     const [isCitasOpen, setIsCitasOpen] = useState(false)
 
     return (

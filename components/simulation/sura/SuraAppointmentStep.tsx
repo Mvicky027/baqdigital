@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react"
 
-interface SuraAppointmentStepProps {
+interface TuraAppointmentStepProps {
     onAssignAppointment: () => void
     onTabChange: (tab: 'assign' | 'list') => void
 }
 
-export function SuraAppointmentStep({ onAssignAppointment, onTabChange }: SuraAppointmentStepProps) {
+export function TuraAppointmentStep({ onAssignAppointment, onTabChange }: TuraAppointmentStepProps) {
     const [service, setService] = useState("CONSULTA MEDICINA GENERAL SALUD CITA PRESI")
     const [showAvailability, setShowAvailability] = useState(false)
 
@@ -51,17 +51,17 @@ export function SuraAppointmentStep({ onAssignAppointment, onTabChange }: SuraAp
                 <div className="flex gap-4 mb-8">
                     <button
                         onClick={() => onTabChange('assign')}
-                        className="bg-[#007bff] text-white px-4 py-2 rounded text-sm font-medium"
+                        className="bg-violet-600 text-white px-4 py-2 rounded text-sm font-medium"
                     >
                         Asignación de citas
                     </button>
                     <button
                         onClick={() => onTabChange('list')}
-                        className="text-[#007bff] px-4 py-2 rounded text-sm font-medium hover:bg-blue-50"
+                        className="text-violet-600 px-4 py-2 rounded text-sm font-medium hover:bg-violet-50"
                     >
                         Consulta, pago y cancelación
                     </button>
-                    <div className="ml-auto text-[#007bff] text-sm font-medium cursor-pointer hover:underline">
+                    <div className="ml-auto text-violet-600 text-sm font-medium cursor-pointer hover:underline">
                         Nueva cita para otros servicios
                     </div>
                 </div>
@@ -151,7 +151,7 @@ export function SuraAppointmentStep({ onAssignAppointment, onTabChange }: SuraAp
                                     />
                                 </div>
                             </div>
-                            <button className="bg-[#007bff] text-white px-6 py-2 rounded text-sm font-medium hover:bg-blue-600 transition-colors w-full md:w-auto">
+                            <button className="bg-violet-600 text-white px-6 py-2 rounded text-sm font-medium hover:bg-violet-600 transition-colors w-full md:w-auto">
                                 Actualiza tus datos
                             </button>
                         </div>
@@ -215,7 +215,7 @@ export function SuraAppointmentStep({ onAssignAppointment, onTabChange }: SuraAp
                                                     <div className="w-1/3 text-center">
                                                         <button
                                                             onClick={onAssignAppointment}
-                                                            className="bg-[#007bff] text-white px-4 py-1 rounded text-[10px] font-bold hover:bg-blue-600"
+                                                            className="bg-violet-600 text-white px-4 py-1 rounded text-[10px] font-bold hover:bg-violet-600"
                                                         >
                                                             ASIGNAR CITA
                                                         </button>
@@ -227,7 +227,7 @@ export function SuraAppointmentStep({ onAssignAppointment, onTabChange }: SuraAp
                                                     <div className="w-1/3 text-center">
                                                         <button
                                                             onClick={onAssignAppointment}
-                                                            className="bg-[#007bff] text-white px-4 py-1 rounded text-[10px] font-bold hover:bg-blue-600"
+                                                            className="bg-violet-600 text-white px-4 py-1 rounded text-[10px] font-bold hover:bg-violet-600"
                                                         >
                                                             ASIGNAR CITA
                                                         </button>
@@ -254,7 +254,7 @@ export function SuraAppointmentStep({ onAssignAppointment, onTabChange }: SuraAp
                                     </div>
                                     <button
                                         onClick={() => setShowAvailability(true)}
-                                        className="bg-[#007bff] text-white px-6 py-2 rounded text-sm font-medium hover:bg-blue-600 transition-colors w-full"
+                                        className="bg-violet-600 text-white px-6 py-2 rounded text-sm font-medium hover:bg-violet-600 transition-colors w-full"
                                     >
                                         Consultar disponibilidad
                                     </button>

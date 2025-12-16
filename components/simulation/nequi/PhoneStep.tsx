@@ -31,7 +31,7 @@ export function PhoneStep({ phoneNumber, setPhoneNumber, onNext, onBack }: Phone
             </div>
 
             <p className="text-gray-500 text-sm mb-auto">
-                Al escribir tu número de cel, autorizas a Nequi para enviarte mensajes de texto con info del servicio, cuando sea necesario.
+                Al escribir tu número de cel, autorizas a Nesqui para enviarte mensajes de texto con info del servicio, cuando sea necesario.
             </p>
 
             <div className="mt-6">
@@ -40,14 +40,14 @@ export function PhoneStep({ phoneNumber, setPhoneNumber, onNext, onBack }: Phone
                         <input type="checkbox" className="w-5 h-5 accent-[#da0081] rounded" defaultChecked />
                     </div>
                     <p className="text-sm text-gray-600">
-                        Marca esta opción para enviarte el mensaje de texto que te permitirá vincular tu cel con Nequi.
+                        Marca esta opción para enviarte el mensaje de texto que te permitirá vincular tu cel con Nesqui.
                     </p>
                 </div>
 
                 <button
                     onClick={onNext}
                     disabled={phoneNumber.length < 10}
-                    className={`w-full py-4 rounded-lg font-medium text-white text-lg transition-colors ${phoneNumber.length >= 10 ? 'bg-[#da0081] hover:bg-[#b5006b]' : 'bg-gray-300 cursor-not-allowed'
+                    className={`w-full py-4 rounded-lg font-medium text-white text-lg transition-colors ${phoneNumber.length >= 10 ? 'bg-emerald-600 hover:bg-emerald-700' : 'bg-gray-300 cursor-not-allowed'
                         }`}
                 >
                     Acepta

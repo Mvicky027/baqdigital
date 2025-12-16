@@ -20,7 +20,7 @@ export function SendFormStep({ recipient, setRecipient, amount, setAmount, onNex
             <h1 className="text-xl font-bold text-[#130016] mb-6">¿A quién le vas a enviar plata?</h1>
 
             <div className="space-y-6">
-                <div className="bg-pink-50/50 p-4 rounded-xl relative">
+                <div className="bg-emerald-50/50 p-4 rounded-xl relative">
                     <label className="text-xs text-[#da0081] font-medium block mb-1">Escribe la llave para enviar</label>
                     <input
                         type="tel"
@@ -36,7 +36,7 @@ export function SendFormStep({ recipient, setRecipient, amount, setAmount, onNex
                     Puedes escribir un número de celular, número de documento, un correo o usuario
                 </p>
 
-                <div className="bg-pink-50/50 p-4 rounded-xl relative">
+                <div className="bg-emerald-50/50 p-4 rounded-xl relative">
                     <label className="text-xs text-[#da0081] font-medium block mb-1">¿Cuánto?</label>
                     <div className="flex items-center">
                         <span className="text-[#130016] font-medium text-lg mr-1">$</span>
@@ -53,7 +53,7 @@ export function SendFormStep({ recipient, setRecipient, amount, setAmount, onNex
                     </div>
                 </div>
 
-                <div className="bg-pink-50/50 p-4 rounded-xl">
+                <div className="bg-emerald-50/50 p-4 rounded-xl">
                     <label className="text-xs text-[#da0081] font-medium block mb-1">Mensaje</label>
                     <input
                         type="text"
@@ -65,7 +65,7 @@ export function SendFormStep({ recipient, setRecipient, amount, setAmount, onNex
                 <div>
                     <p className="text-gray-500 text-sm mb-2">¿De dónde saldrá la plata?</p>
                     <div className="border border-gray-200 rounded-xl p-3 flex items-center gap-3">
-                        <div className="w-10 h-10 bg-[#da0081] rounded flex items-center justify-center">
+                        <div className="w-10 h-10 bg-emerald-600 rounded flex items-center justify-center">
                             <div className="grid grid-cols-2 gap-1">
                                 <div className="w-2 h-2 bg-white/50 rounded-sm"></div>
                                 <div className="w-2 h-2 bg-white rounded-sm"></div>
@@ -79,10 +79,10 @@ export function SendFormStep({ recipient, setRecipient, amount, setAmount, onNex
             </div>
 
             <div className="mt-auto relative">
-                <div className="absolute -top-12 left-0 w-8 h-8 bg-[#da0081] rounded-full flex items-center justify-center text-white font-bold">4</div>
+                <div className="absolute -top-12 left-0 w-8 h-8 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold">4</div>
                 <button
                     onClick={onNext}
-                    className="w-full bg-[#da0081] hover:bg-[#b5006b] text-white font-medium py-4 rounded-lg transition-colors text-lg"
+                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-4 rounded-lg transition-colors text-lg"
                 >
                     Seguir
                 </button>

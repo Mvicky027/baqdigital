@@ -24,7 +24,7 @@ export function DocumentStep({ setSelectedDocument, onNext, onBack }: DocumentSt
                             setSelectedDocument(doc)
                             onNext()
                         }}
-                        className="w-full p-4 border border-gray-200 rounded-xl flex justify-between items-center cursor-pointer hover:border-[#da0081] hover:bg-pink-50 transition-all"
+                        className="w-full p-4 border border-gray-200 rounded-xl flex justify-between items-center cursor-pointer hover:border-[#da0081] hover:bg-emerald-50 transition-all"
                     >
                         <span className="text-[#130016] font-medium">{doc}</span>
                         <ChevronRight className="w-5 h-5 text-gray-400" />

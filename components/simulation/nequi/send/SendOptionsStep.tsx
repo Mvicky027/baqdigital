@@ -15,7 +15,7 @@ export function SendOptionsStep({ onSelectOption, onBack }: SendOptionsStepProps
 
             <div className="flex justify-between items-center mb-6">
                 <h1 className="text-2xl font-bold text-[#130016]">Opciones para enviar</h1>
-                <div className="w-8 h-8 bg-[#da0081] rounded-full flex items-center justify-center text-white font-bold">3</div>
+                <div className="w-8 h-8 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold">3</div>
             </div>
 
             <div className="space-y-4">
@@ -26,8 +26,8 @@ export function SendOptionsStep({ onSelectOption, onBack }: SendOptionsStepProps
                     <div className="flex items-center gap-4">
                         <Users className="w-6 h-6 text-gray-700" />
                         <div>
-                            <h3 className="font-bold text-[#130016]">Nequi</h3>
-                            <p className="text-gray-500 text-sm">A otro número de Nequi</p>
+                            <h3 className="font-bold text-[#130016]">Nesqui</h3>
+                            <p className="text-gray-500 text-sm">A otro número de Nesqui</p>
                         </div>
                     </div>
                     <ChevronRight className="w-5 h-5 text-gray-400" />

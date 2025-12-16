@@ -12,7 +12,7 @@ import { ConfirmStep } from "@/components/simulation/nequi/send/ConfirmStep"
 import { ProgressBar } from "@/components/simulation/ProgressBar"
 import { SendSuccessStep } from "@/components/simulation/nequi/send/SendSuccessStep"
 
-export default function NequiSendMoneyPage() {
+export default function NesquiSendMoneyPage() {
     const router = useRouter()
     const [step, setStep] = useState(1)
     const [loading, setLoading] = useState(false)

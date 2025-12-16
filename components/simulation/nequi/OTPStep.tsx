@@ -29,7 +29,7 @@ export function OTPStep({ otp, setOtp, phoneNumber, onNext, onBack }: OTPStepPro
                 ))}
                 <div className="h-16 w-14 flex items-center justify-center">
                     <div className="p-2 border border-[#da0081] rounded-lg">
-                        <div className="w-4 h-4 bg-[#da0081] rounded-full"></div>
+                        <div className="w-4 h-4 bg-emerald-600 rounded-full"></div>
                     </div>
                 </div>
             </div>

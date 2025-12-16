@@ -1,11 +1,11 @@
 import React from 'react'
 import { X } from "lucide-react"
 
-interface SuraMessageModalProps {
+interface TuraMessageModalProps {
     onClose: () => void
 }
 
-export function SuraMessageModal({ onClose }: SuraMessageModalProps) {
+export function TuraMessageModal({ onClose }: TuraMessageModalProps) {
     return (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
             <div className="bg-white rounded shadow-lg w-full max-w-lg overflow-hidden">

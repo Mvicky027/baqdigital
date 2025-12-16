@@ -23,7 +23,7 @@ export function ConfirmStep({ recipient, amount, onConfirm, onBack }: ConfirmSte
 
                 <div className="flex justify-between items-start mb-6">
                     <h2 className="text-2xl font-bold text-[#130016]">Confirma el envío</h2>
-                    <div className="w-8 h-8 bg-[#da0081] rounded-full flex items-center justify-center text-white font-bold absolute -top-4 right-6">5</div>
+                    <div className="w-8 h-8 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold absolute -top-4 right-6">5</div>
                     <button onClick={onBack}>
                         <X className="w-6 h-6 text-gray-500" />
                     </button>
@@ -46,7 +46,7 @@ export function ConfirmStep({ recipient, amount, onConfirm, onBack }: ConfirmSte
                     <div>
                         <p className="text-gray-500 text-sm mb-2">La plata saldrá de:</p>
                         <div className="border border-gray-200 rounded-xl p-3 flex items-center gap-3">
-                            <div className="w-10 h-10 bg-[#da0081] rounded flex items-center justify-center">
+                            <div className="w-10 h-10 bg-emerald-600 rounded flex items-center justify-center">
                                 <div className="grid grid-cols-2 gap-1">
                                     <div className="w-2 h-2 bg-white/50 rounded-sm"></div>
                                     <div className="w-2 h-2 bg-white rounded-sm"></div>
@@ -62,7 +62,7 @@ export function ConfirmStep({ recipient, amount, onConfirm, onBack }: ConfirmSte
                 <div className="space-y-3">
                     <button
                         onClick={onConfirm}
-                        className="w-full bg-[#da0081] hover:bg-[#b5006b] text-white font-medium py-4 rounded-lg transition-colors text-lg"
+                        className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-4 rounded-lg transition-colors text-lg"
                     >
                         Enviar
                     </button>

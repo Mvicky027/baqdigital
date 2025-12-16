@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Calendar } from "lucide-react"
 
-interface SuraAppointmentsListStepProps {
+interface TuraAppointmentsListStepProps {
     onTabChange: (tab: 'assign' | 'list') => void
     onCancel: () => void
 }
 
-export function SuraAppointmentsListStep({ onTabChange, onCancel }: SuraAppointmentsListStepProps) {
+export function TuraAppointmentsListStep({ onTabChange, onCancel }: TuraAppointmentsListStepProps) {
     const [idNumber, setIdNumber] = useState("")
     const [name, setName] = useState("")
     const [showResults, setShowResults] = useState(false)
@@ -41,13 +41,13 @@ export function SuraAppointmentsListStep({ onTabChange, onCancel }: SuraAppointm
                 <div className="flex gap-4 mb-8">
                     <button
                         onClick={() => onTabChange('assign')}
-                        className="text-[#007bff] px-4 py-2 rounded text-sm font-medium hover:bg-blue-50"
+                        className="text-violet-600 px-4 py-2 rounded text-sm font-medium hover:bg-violet-50"
                     >
                         Asignación de citas
                     </button>
                     <button
                         onClick={() => onTabChange('list')}
-                        className="bg-[#007bff] text-white px-4 py-2 rounded text-sm font-medium"
+                        className="bg-violet-600 text-white px-4 py-2 rounded text-sm font-medium"
                     >
                         Consulta, pago y cancelación
                     </button>
@@ -91,7 +91,7 @@ export function SuraAppointmentsListStep({ onTabChange, onCancel }: SuraAppointm
                                 </div>
                                 <button
                                     onClick={handleSearch}
-                                    className="bg-[#007bff] text-white px-8 py-2 rounded text-sm font-medium hover:bg-blue-600"
+                                    className="bg-violet-600 text-white px-8 py-2 rounded text-sm font-medium hover:bg-violet-600"
                                 >
                                     Buscar
                                 </button>
@@ -135,7 +135,7 @@ export function SuraAppointmentsListStep({ onTabChange, onCancel }: SuraAppointm
                                             <div>VALOR: 19200.0</div>
                                         </div>
                                         <div className="col-span-1 flex justify-center">
-                                            <button className="bg-[#007bff] text-white px-3 py-1 rounded text-[10px] font-bold">
+                                            <button className="bg-violet-600 text-white px-3 py-1 rounded text-[10px] font-bold">
                                                 PAGAR
                                             </button>
                                         </div>
@@ -147,7 +147,7 @@ export function SuraAppointmentsListStep({ onTabChange, onCancel }: SuraAppointm
                                         <div className="col-span-1 flex justify-center">
                                             <button
                                                 onClick={onCancel}
-                                                className="bg-[#007bff] text-white px-3 py-1 rounded text-[10px] font-bold"
+                                                className="bg-violet-600 text-white px-3 py-1 rounded text-[10px] font-bold"
                                             >
                                                 CANCELAR
                                             </button>

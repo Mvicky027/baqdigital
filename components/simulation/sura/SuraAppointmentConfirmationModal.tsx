@@ -1,10 +1,10 @@
 import React from 'react'
 
-interface SuraAppointmentConfirmationModalProps {
+interface TuraAppointmentConfirmationModalProps {
     onClose: () => void
 }
 
-export function SuraAppointmentConfirmationModal({ onClose }: SuraAppointmentConfirmationModalProps) {
+export function TuraAppointmentConfirmationModal({ onClose }: TuraAppointmentConfirmationModalProps) {
     return (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
             <div className="bg-white rounded shadow-lg w-full max-w-2xl overflow-hidden">
@@ -29,12 +29,12 @@ export function SuraAppointmentConfirmationModal({ onClose }: SuraAppointmentCon
                             Cerrar
                         </button>
                         <button
-                            className="bg-[#007bff] text-white px-4 py-1.5 rounded text-xs font-medium hover:bg-blue-600"
+                            className="bg-violet-600 text-white px-4 py-1.5 rounded text-xs font-medium hover:bg-violet-600"
                         >
                             Nueva cita para otro servicio
                         </button>
                         <button
-                            className="bg-[#007bff] text-white px-4 py-1.5 rounded text-xs font-medium hover:bg-blue-600"
+                            className="bg-violet-600 text-white px-4 py-1.5 rounded text-xs font-medium hover:bg-violet-600"
                         >
                             Verificar valor
                         </button>

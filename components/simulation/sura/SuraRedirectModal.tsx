@@ -1,10 +1,10 @@
 import React from 'react'
 
-interface SuraRedirectModalProps {
+interface TuraRedirectModalProps {
     onClose: () => void
 }
 
-export function SuraRedirectModal({ onClose }: SuraRedirectModalProps) {
+export function TuraRedirectModal({ onClose }: TuraRedirectModalProps) {
     return (
         <div className="fixed inset-0 bg-black/50 flex items-start justify-center pt-20 z-50">
             <div className="bg-white rounded-lg shadow-lg w-full max-w-2xl overflow-hidden">

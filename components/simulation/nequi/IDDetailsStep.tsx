@@ -21,11 +21,11 @@ export function IDDetailsStep({ idNumber, setIdNumber, birthDate, setBirthDate, 
 
             <div className="flex items-center gap-2 mb-8">
                 <h1 className="text-2xl font-bold text-[#130016]">Tu cédula de ciudadanía</h1>
-                <div className="w-8 h-8 bg-[#da0081] rounded-full flex items-center justify-center text-white font-bold">9</div>
+                <div className="w-8 h-8 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold">9</div>
             </div>
 
             <div className="space-y-4 mb-8">
-                <div className="bg-pink-50 p-4 rounded-lg">
+                <div className="bg-emerald-50 p-4 rounded-lg">
                     <label className="block text-xs text-[#da0081] mb-1">Número de identificación *</label>
                     <input
                         type="text"
@@ -61,7 +61,7 @@ export function IDDetailsStep({ idNumber, setIdNumber, birthDate, setBirthDate, 
 
             <button
                 onClick={onNext}
-                className="w-full bg-[#da0081] hover:bg-[#b5006b] text-white font-medium py-4 rounded-lg transition-colors text-lg"
+                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-4 rounded-lg transition-colors text-lg"
             >
                 Listo
             </button>

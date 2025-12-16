@@ -16,60 +16,58 @@ import { BookOpen, Globe, Mail, ShoppingCart, FileText, CreditCard, Shield, LogO
 
 const courses = [
   {
+    id: "nequi",
+    title: "Nesqui - Billetera",
+    description: "Aprende a enviar plata, pedir plata y pagar servicios",
+    icon: CreditCard,
+    color: "bg-emerald-600",
+    simulationUrl: "/simulations/nequi",
+  },
+  {
+    id: "sura",
+    title: "Tura - Citas Médicas",
+    description: "Gestiona tus citas médicas, resultados y seguros",
+    icon: Shield,
+    color: "bg-violet-600",
+    simulationUrl: "/simulations/sura",
+  },
+]
+
+const upcomingCourses = [
+  {
     id: "email",
     title: "Correo Electrónico",
     description: "Aprende a usar Gmail para enviar y recibir mensajes",
     icon: Mail,
-    color: "bg-red-500",
-    simulationUrl: "/simulations/email",
+    color: "bg-gray-400",
   },
   {
     id: "navegacion",
     title: "Navegación Web",
     description: "Descubre cómo usar el navegador y buscar información",
     icon: Globe,
-    color: "bg-blue-500",
-    simulationUrl: "/simulations/browser",
+    color: "bg-gray-400",
   },
   {
     id: "compras",
     title: "Compras en Línea",
     description: "Realiza compras seguras por internet",
     icon: ShoppingCart,
-    color: "bg-green-500",
-    simulationUrl: "/simulations/shopping",
+    color: "bg-gray-400",
   },
   {
     id: "tramites",
     title: "Trámites en Línea",
     description: "Aprende a realizar trámites gubernamentales",
     icon: FileText,
-    color: "bg-purple-500",
-    simulationUrl: "/simulations/government",
+    color: "bg-gray-400",
   },
   {
     id: "banca",
     title: "Banca en Línea",
     description: "Gestiona tus finanzas de forma segura",
     icon: CreditCard,
-    color: "bg-orange-500",
-    simulationUrl: "/simulations/banking",
-  },
-  {
-    id: "nequi",
-    title: "Nequi - Billetera Digital",
-    description: "Aprende a enviar plata, pedir plata y pagar servicios",
-    icon: CreditCard,
-    color: "bg-purple-600",
-    simulationUrl: "/simulations/nequi",
-  },
-  {
-    id: "sura",
-    title: "Sura",
-    description: "Gestiona tus citas médicas, resultados y seguros con Sura",
-    icon: Shield,
-    color: "bg-blue-600",
-    simulationUrl: "/simulations/sura",
+    color: "bg-gray-400",
   },
 ]
 
@@ -178,33 +176,61 @@ export default function DashboardPage() {
           <p className="text-gray-600">Selecciona un curso para comenzar tu práctica en un entorno seguro</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {courses.map((course) => {
             const Icon = course.icon
             return (
               <Card
                 key={course.id}
-                className="hover:shadow-lg transition-shadow cursor-pointer group"
+                className="group hover:shadow-xl transition-all duration-300 border-gray-100 overflow-hidden cursor-pointer bg-white"
                 onClick={() => handleCourseClick(course)}
               >
-                <CardHeader>
+                <div className={`h-2 w-full ${course.color.replace('bg-', 'bg-opacity-80 bg-')}`} />
+                <CardHeader className="pb-4">
                   <div
-                    className={`w-12 h-12 ${course.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
+                    className={`w-14 h-14 ${course.color} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-sm`}
                   >
-                    <Icon className="w-6 h-6 text-white" />
+                    <Icon className="w-7 h-7 text-white" />
                   </div>
-                  <CardTitle className="text-xl">{course.title}</CardTitle>
-                  <CardDescription>{course.description}</CardDescription>
+                  <CardTitle className="text-xl text-[#0a2540] group-hover:text-[#00b8c4] transition-colors">
+                    {course.title}
+                  </CardTitle>
+                  <CardDescription className="text-gray-500 leading-relaxed">
+                    {course.description}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Button className="w-full bg-blue-900 hover:bg-blue-800">
-                    <BookOpen className="w-4 h-4 mr-2" />
+                  <div className="flex items-center text-sm font-medium text-[#00b8c4] group-hover:translate-x-1 transition-transform">
                     Comenzar práctica
-                  </Button>
+                    <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
                 </CardContent>
               </Card>
             )
           })}
+        </div>
+
+        {/* Upcoming Courses */}
+        <div className="mb-8 border-t pt-8">
+          <h2 className="text-2xl font-bold text-gray-400 mb-6">Muy pronto...</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+            {upcomingCourses.map((course) => {
+              const Icon = course.icon
+              return (
+                <Card key={course.id} className="border-gray-100 bg-gray-50">
+                  <CardHeader className="pb-4">
+                    <div className="w-12 h-12 bg-gray-200 rounded-xl flex items-center justify-center mb-4">
+                      <Icon className="w-6 h-6 text-gray-500" />
+                    </div>
+                    <CardTitle className="text-lg text-gray-600">{course.title}</CardTitle>
+                    <CardDescription>{course.description}</CardDescription>
+                  </CardHeader>
+                </Card>
+              )
+            })}
+          </div>
         </div>
       </main>
 
@@ -233,13 +259,13 @@ export default function DashboardPage() {
             {selectedCourse?.id === 'nequi' ? (
               <div className="flex gap-2 w-full sm:w-auto mt-2 sm:mt-0">
                 <Button
-                  className="bg-[#da0081] hover:bg-[#b5006b] text-white flex-1"
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white flex-1"
                   onClick={() => router.push('/simulations/nequi')}
                 >
                   Registrarse
                 </Button>
                 <Button
-                  className="bg-[#da0081] hover:bg-[#b5006b] text-white flex-1"
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white flex-1"
                   onClick={() => router.push('/simulations/nequi/send')}
                 >
                   Enviar Plata

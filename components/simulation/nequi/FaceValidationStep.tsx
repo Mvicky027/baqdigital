@@ -10,7 +10,7 @@ export function FaceValidationStep({ onNext }: FaceValidationStepProps) {
         <div className="flex flex-col h-full bg-white p-6">
             <div className="flex justify-between items-center mb-6">
                 <h1 className="text-xl font-bold text-[#130016]">Validemos tu identidad</h1>
-                <div className="w-8 h-8 bg-[#da0081] rounded-full flex items-center justify-center text-white font-bold">11</div>
+                <div className="w-8 h-8 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold">11</div>
             </div>
 
             <div className="bg-gray-200 rounded-lg h-80 mb-6 flex items-center justify-center relative overflow-hidden">
@@ -39,7 +39,7 @@ export function FaceValidationStep({ onNext }: FaceValidationStepProps) {
 
             <button
                 onClick={onNext}
-                className="w-full bg-[#da0081] hover:bg-[#b5006b] text-white font-medium py-4 rounded-lg transition-colors text-lg mt-auto"
+                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-4 rounded-lg transition-colors text-lg mt-auto"
             >
                 Continuar
             </button>

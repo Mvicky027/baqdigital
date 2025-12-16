@@ -17,18 +17,18 @@ export function InfoStep({ onNext, onBack }: InfoStepProps) {
             <p className="text-[#da0081] text-sm font-medium mb-6">Tus nombres</p>
 
             <div className="space-y-4 mb-8">
-                <div className="bg-pink-50 p-4 rounded-lg">
+                <div className="bg-emerald-50 p-4 rounded-lg">
                     <label className="block text-xs text-[#da0081] mb-1">Primer nombre *</label>
                     <input type="text" className="w-full bg-transparent border-none outline-none text-[#130016] font-medium" defaultValue="C" />
                 </div>
                 <div className="bg-gray-50 p-4 rounded-lg">
                     <input type="text" placeholder="Segundo nombre (opcional)" className="w-full bg-transparent border-none outline-none text-[#130016]" />
                 </div>
-                <div className="bg-pink-50 p-4 rounded-lg">
+                <div className="bg-emerald-50 p-4 rounded-lg">
                     <label className="block text-xs text-[#da0081] mb-1">Primer apellido *</label>
                     <input type="text" className="w-full bg-transparent border-none outline-none text-[#130016] font-medium" defaultValue="C" />
                 </div>
-                <div className="bg-pink-50 p-4 rounded-lg">
+                <div className="bg-emerald-50 p-4 rounded-lg">
                     <label className="block text-xs text-[#da0081] mb-1">Segundo apellido (opcional)</label>
                     <input type="text" className="w-full bg-transparent border-none outline-none text-[#130016] font-medium" defaultValue="G" />
                 </div>
@@ -40,7 +40,7 @@ export function InfoStep({ onNext, onBack }: InfoStepProps) {
             </div>
 
             <p className="text-[#da0081] text-sm font-medium mb-2">Info adicional</p>
-            <div className="bg-pink-50 p-4 rounded-lg mb-8 flex justify-between items-center">
+            <div className="bg-emerald-50 p-4 rounded-lg mb-8 flex justify-between items-center">
                 <div>
                     <label className="block text-xs text-[#da0081]">País de residencia *</label>
                     <span className="text-[#130016] font-medium">Colombia</span>
@@ -50,7 +50,7 @@ export function InfoStep({ onNext, onBack }: InfoStepProps) {
 
             <button
                 onClick={onNext}
-                className="w-full bg-[#da0081] hover:bg-[#b5006b] text-white font-medium py-4 rounded-lg transition-colors text-lg mt-auto"
+                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-4 rounded-lg transition-colors text-lg mt-auto"
             >
                 Sigue
             </button>
