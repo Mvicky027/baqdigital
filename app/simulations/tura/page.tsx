@@ -2,14 +2,14 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { TuraLoginStep } from "@/components/simulation/sura/TuraLoginStep"
-import { TuraDashboardStep } from "@/components/simulation/sura/TuraDashboardStep"
-import { TuraPatientDataStep } from "@/components/simulation/sura/TuraPatientDataStep"
-import { TuraRedirectModal } from "@/components/simulation/sura/TuraRedirectModal"
-import { TuraAppointmentStep } from "@/components/simulation/sura/TuraAppointmentStep"
-import { TuraAppointmentConfirmationModal } from "@/components/simulation/sura/TuraAppointmentConfirmationModal"
-import { TuraAppointmentsListStep } from "@/components/simulation/sura/TuraAppointmentsListStep"
-import { TuraMessageModal } from "@/components/simulation/sura/TuraMessageModal"
+import { TuraLoginStep } from "@/components/simulation/tura/TuraLoginStep"
+import { TuraDashboardStep } from "@/components/simulation/tura/TuraDashboardStep"
+import { TuraPatientDataStep } from "@/components/simulation/tura/TuraPatientDataStep"
+import { TuraRedirectModal } from "@/components/simulation/tura/TuraRedirectModal"
+import { TuraAppointmentStep } from "@/components/simulation/tura/TuraAppointmentStep"
+import { TuraAppointmentConfirmationModal } from "@/components/simulation/tura/TuraAppointmentConfirmationModal"
+import { TuraAppointmentsListStep } from "@/components/simulation/tura/TuraAppointmentsListStep"
+import { TuraMessageModal } from "@/components/simulation/tura/TuraMessageModal"
 
 export default function TuraSimulationPage() {
     const router = useRouter()

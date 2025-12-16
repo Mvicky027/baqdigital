@@ -3,14 +3,14 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { saveProgress } from "@/action/simulation-actions"
-import { LoginStep } from "@/components/simulation/nequi/send/LoginStep"
-import { DashboardStep } from "@/components/simulation/nequi/send/DashboardStep"
-import { SendOptionsStep } from "@/components/simulation/nequi/send/SendOptionsStep"
-import { SendFormStep } from "@/components/simulation/nequi/send/SendFormStep"
-import { ConfirmStep } from "@/components/simulation/nequi/send/ConfirmStep"
+import { LoginStep } from "@/components/simulation/nesqui/send/LoginStep"
+import { DashboardStep } from "@/components/simulation/nesqui/send/DashboardStep"
+import { SendOptionsStep } from "@/components/simulation/nesqui/send/SendOptionsStep"
+import { SendFormStep } from "@/components/simulation/nesqui/send/SendFormStep"
+import { ConfirmStep } from "@/components/simulation/nesqui/send/ConfirmStep"
 
 import { ProgressBar } from "@/components/simulation/ProgressBar"
-import { SendSuccessStep } from "@/components/simulation/nequi/send/SendSuccessStep"
+import { SendSuccessStep } from "@/components/simulation/nesqui/send/SendSuccessStep"
 
 export default function NesquiSendMoneyPage() {
     const router = useRouter()
