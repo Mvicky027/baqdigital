@@ -155,9 +155,16 @@ export default function LoginPage() {
               <span className="font-medium">{error}</span>
             </div>
             {/* Debug info for user */}
-            <p className="text-xs text-red-400 pl-8">
-              Si el problema persiste, por favor recarga la página e intenta de nuevo.
+            <p className="text-xs text-red-400 pl-8 font-mono mt-1">
+              Ver detalles abajo.
             </p>
+          </div>
+        )}
+
+        {/* Always show debug status if active */}
+        {debugStatus && (
+          <div className="mt-2 p-3 bg-blue-50 border border-blue-100 rounded-lg text-xs font-mono text-blue-800">
+            <strong>Debug Log:</strong> {debugStatus}
           </div>
         )}
 
