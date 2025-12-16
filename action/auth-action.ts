@@ -27,12 +27,15 @@ export async function loginAction(credentials: LoginInput): Promise<ActionRespon
         }
 
         // Attempt to sign in with NextAuth
+        console.log("Starting NextAuth signin for:", validatedFields.data.email)
+        const startTime = Date.now()
         await signIn("credentials", {
             email: validatedFields.data.email,
             password: validatedFields.data.password,
             redirect: false,
         })
 
+        console.log("NextAuth signin completed in:", Date.now() - startTime, "ms")
         return { success: true }
     } catch (error) {
         if (error instanceof AuthError) {

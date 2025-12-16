@@ -35,11 +35,16 @@ export const { auth, signIn, signOut } = NextAuth({
     providers: [
         Credentials({
             async authorize(credentials) {
+                console.log("Authorize callback started")
                 const parsedCredentials = loginSchema.safeParse(credentials)
 
                 if (parsedCredentials.success) {
+                    console.log("Validating credentials with backend...")
                     const user = await validateWithBackend(parsedCredentials.data)
-                    if (user) return user
+                    if (user) {
+                        console.log("User validated successfully")
+                        return user
+                    }
                 }
 
                 console.log("Invalid credentials")

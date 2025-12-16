@@ -25,13 +25,19 @@ class ApiClient {
     ): Promise<{ data?: T; error?: ApiError }> {
         try {
             const url = `${this.baseUrl}${endpoint}`
+
+            // Add timeout of 15 seconds
+            const controller = new AbortController()
+            const id = setTimeout(() => controller.abort(), 15000)
+
             const response = await fetch(url, {
                 ...options,
+                signal: controller.signal,
                 headers: {
                     "Content-Type": "application/json",
                     ...options.headers,
                 },
-            })
+            }).finally(() => clearTimeout(id))
 
             const json: BackendResponse<T> = await response.json()
 
