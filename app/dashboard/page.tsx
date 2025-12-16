@@ -12,7 +12,7 @@ import {
   DialogTitle,
   DialogFooter,
 } from "@/components/ui/dialog"
-import { BookOpen, Globe, Mail, ShoppingCart, FileText, CreditCard } from "lucide-react"
+import { BookOpen, Globe, Mail, ShoppingCart, FileText, CreditCard, Shield, LogOut } from "lucide-react"
 
 const courses = [
   {
@@ -55,6 +55,22 @@ const courses = [
     color: "bg-orange-500",
     simulationUrl: "/simulations/banking",
   },
+  {
+    id: "nequi",
+    title: "Nequi - Billetera Digital",
+    description: "Aprende a enviar plata, pedir plata y pagar servicios",
+    icon: CreditCard,
+    color: "bg-purple-600",
+    simulationUrl: "/simulations/nequi",
+  },
+  {
+    id: "sura",
+    title: "Sura",
+    description: "Gestiona tus citas médicas, resultados y seguros con Sura",
+    icon: Shield,
+    color: "bg-blue-600",
+    simulationUrl: "/simulations/sura",
+  },
 ]
 
 export default function DashboardPage() {
@@ -63,23 +79,33 @@ export default function DashboardPage() {
   const [loading, setLoading] = useState(true)
   const [selectedCourse, setSelectedCourse] = useState<(typeof courses)[0] | null>(null)
   const [showDialog, setShowDialog] = useState(false)
+  const [showLogoutDialog, setShowLogoutDialog] = useState(false) // Logout confirmation
+  const [debugStatus, setDebugStatus] = useState("Iniciando dashboard...") // Debug state
 
   useEffect(() => {
     async function loadUserData() {
       try {
+        setDebugStatus("Buscando sesión en /api/auth/session...")
         // Fetch session from NextAuth
         const response = await fetch("/api/auth/session")
+        setDebugStatus(`Respuesta sesión: ${response.status}`)
+
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`)
+
         const session = await response.json()
+        setDebugStatus(session?.user ? "Sesión encontrada" : "Sesión vacía")
 
         if (!session || !session.user) {
-          router.push("/login")
+          setDebugStatus("Redirigiendo a login (sin usuario)...")
+          setTimeout(() => router.push("/login"), 2000) // Delay to see debug
           return
         }
 
         setUser(session.user)
-      } catch (error) {
+      } catch (error: any) {
         console.error("Error loading user data:", error)
-        router.push("/login")
+        setDebugStatus(`Error cargando sesión: ${error.message}`)
+        setTimeout(() => router.push("/login"), 3000)
       } finally {
         setLoading(false)
       }
@@ -99,9 +125,13 @@ export default function DashboardPage() {
     }
   }
 
-  const handleLogout = async () => {
+  const handleLogoutClick = () => {
+    setShowLogoutDialog(true)
+  }
+
+  const confirmLogout = async () => {
     await fetch("/api/auth/signout", { method: "POST" })
-    router.push("/")
+    window.location.href = "/" // Hard redirect
   }
 
   if (loading) {
@@ -110,6 +140,9 @@ export default function DashboardPage() {
         <div className="text-center">
           <div className="animate-spin w-12 h-12 border-4 border-blue-900 border-t-transparent rounded-full mx-auto mb-4"></div>
           <p className="text-gray-600">Cargando...</p>
+          <div className="mt-4 p-2 bg-white/50 rounded text-xs font-mono text-blue-800">
+            Debug: {debugStatus}
+          </div>
         </div>
       </div>
     )
@@ -130,7 +163,8 @@ export default function DashboardPage() {
               <span className="text-gray-600">Bienvenido,</span>{" "}
               <span className="font-semibold text-gray-900">{user.name}</span>
             </div>
-            <Button variant="outline" onClick={handleLogout}>
+            <Button variant="outline" onClick={handleLogoutClick} className="gap-2">
+              <LogOut className="w-4 h-4" />
               Cerrar sesión
             </Button>
           </div>
@@ -191,12 +225,50 @@ export default function DashboardPage() {
               cometer errores sin consecuencias reales.
             </p>
           </div>
-          <DialogFooter className="flex gap-2 sm:gap-0">
-            <Button variant="outline" onClick={() => setShowDialog(false)}>
+          <DialogFooter className="flex gap-2 sm:gap-0 flex-wrap">
+            <Button variant="outline" onClick={() => setShowDialog(false)} className="w-full sm:w-auto">
               Cancelar
             </Button>
-            <Button className="bg-blue-900 hover:bg-blue-800" onClick={handleStartSimulation}>
-              Iniciar simulación
+
+            {selectedCourse?.id === 'nequi' ? (
+              <div className="flex gap-2 w-full sm:w-auto mt-2 sm:mt-0">
+                <Button
+                  className="bg-[#da0081] hover:bg-[#b5006b] text-white flex-1"
+                  onClick={() => router.push('/simulations/nequi')}
+                >
+                  Registrarse
+                </Button>
+                <Button
+                  className="bg-[#da0081] hover:bg-[#b5006b] text-white flex-1"
+                  onClick={() => router.push('/simulations/nequi/send')}
+                >
+                  Enviar Plata
+                </Button>
+              </div>
+            ) : (
+              <Button className="bg-blue-900 hover:bg-blue-800 w-full sm:w-auto mt-2 sm:mt-0" onClick={handleStartSimulation}>
+                Iniciar simulación
+              </Button>
+            )}
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      {/* Logout Confirmation Dialog */}
+      <Dialog open={showLogoutDialog} onOpenChange={setShowLogoutDialog}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-xl text-blue-900">¿Cerrar sesión?</DialogTitle>
+            <DialogDescription className="text-gray-600">
+              ¿Estás seguro que deseas salir de BAQ+DIGITAL? Tendrás que ingresar tus datos nuevamente para entrar.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="flex gap-2 sm:gap-0">
+            <Button variant="outline" onClick={() => setShowLogoutDialog(false)}>
+              Cancelar
+            </Button>
+            <Button variant="destructive" onClick={confirmLogout}>
+              Sí, cerrar sesión
             </Button>
           </DialogFooter>
         </DialogContent>
